@@ -88,7 +88,7 @@ public class Game {
             this.players[i] = new Player(playerName);
 
             //GUI.addPlayer(this.players[i].getName(), this.players[i].getAmount());
-            GUI.addPlayer(this.players[i].getName(), this.players[i].getAmount());
+            GUI.addPlayer(new GUI_Player(this.players[i].getName(), this.players[i].getAmount()));
         }
     }
 
@@ -108,7 +108,8 @@ public class Game {
             do {
                 //GUI.removeAllCars(currentPlayer.getName());
                 //GUI_Field.removeAllCars(currentPlayer.getName());
-                GUI_Field.removeAllCars(currentPlayer.getName());
+                //GUI_Field.removeAllCars(currentPlayer.getName());
+                GUI_Field.removeAllCars();
                 this.rollDies();
 
                 //GUI.setCar(this.sum(), currentPlayer.getName());
@@ -133,7 +134,9 @@ public class Game {
                     this.translate.t("turn.scoreCurrent", new String[] {"" + currentPlayer.getAmount()}),
                 });
 
-                GUI_Player.setBalance(currentPlayer.getName(),currentPlayer.getAmount());
+                //GUI_Player.setBalance(currentPlayer.getName(),currentPlayer.getAmount());
+                GUI_Player.setBalance(currentPlayer.getAmount());
+
             } while (this.sum() == 10);
 
             winnerFound = currentPlayer.getAmount() >= 3000;

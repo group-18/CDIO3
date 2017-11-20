@@ -6,22 +6,24 @@ public class Main {
     public static void main(String[] args) {
         //The game-object is created
         Game game = new Game();
+
+        GUI gui = new GUI();
+
         //The askForPlayer() can be changed if more players are needed to play the game
         //game.askForPlayers(2);
 
-        int amountOfPlayers = GUI.getUserInteger("Indtast antal spillere: ");
+        int amountOfPlayers = gui.getUserInteger("Indtast antal spillere: ");
 
         if (amountOfPlayers >= 2 && amountOfPlayers <= 4) {
             game.askForPlayers(amountOfPlayers);
         } else {
-            amountOfPlayers = GUI.getUserInteger("Ikke tilladt! Indtast antal spillere: ");
+            amountOfPlayers = gui.getUserInteger("Ikke tilladt! Indtast antal spillere: ");
         }
 
         game.askForPlayers(amountOfPlayers);
         //the Game-class contains the game, and the the method play() plays it
         game.play();
 
-        GUI gui = new GUI();
 
     }
 }
