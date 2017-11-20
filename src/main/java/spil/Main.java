@@ -7,13 +7,11 @@ public class Main {
     public static void main(String[] args) {
         //The game-object is created
 
-      /*  Game game = new Game();
+      Game game = new Game();
 
-        GUI gui = new GUI();
+      //The askForPlayer() can be changed if more players are needed to play the game
 
-        //The askForPlayer() can be changed if more players are needed to play the game
-        //game.askForPlayers(2);
-
+/**
         int amountOfPlayers = gui.getUserInteger("Indtast antal spillere: ");
 
         if (amountOfPlayers >= 2 && amountOfPlayers <= 4) {
@@ -21,13 +19,13 @@ public class Main {
         } else {
             amountOfPlayers = gui.getUserInteger("Ikke tilladt! Indtast antal spillere: ");
         }
-
+*/
+        int amountOfPlayers = 2;
         game.askForPlayers(amountOfPlayers);
         //the Game-class contains the game, and the the method play() plays it
         game.play();
-*/
 
-      Board.boardgame(null);
+      //Board.boardgame(null);
 
     }
 }

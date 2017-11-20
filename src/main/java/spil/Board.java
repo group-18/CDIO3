@@ -2,10 +2,8 @@ package spil;
 
 
 import gui_fields.GUI_Field;
-import gui_fields.GUI_Field;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
-import gui_resources.*;
 
 import java.awt.*;
 
