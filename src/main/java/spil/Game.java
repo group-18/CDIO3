@@ -1,15 +1,14 @@
 package spil;
 
-import gui_fields.GUI_Field;
 import gui_main.GUI;
 import gui_fields.*;
-import gui_fields.GUI_Board;
-import gui_resources.*;
 
 
 public class Game {
 
-    GUI gui;
+    private GUI gui;
+
+    private Board board;
 
     private Dice[] dies;
 
@@ -71,10 +70,13 @@ public class Game {
             5,
     };
 
-    public Game()
+    public Game(GUI gui, Board board)
     {
+        this.gui = gui;
+        this.board = board;
+
         //this.translate = new Translate("da_DK");
-        this.dies = new Dice[] {new Dice(), new Dice()};
+        this.dies = new Dice[]{new Dice(), new Dice()};
 
         //Board.boardgame(this.translate);
     }
@@ -124,6 +126,8 @@ public class Game {
 
 
                 int fieldNumber = this.sum() - 2;
+                GUI_Street field = this.board.getField(fieldNumber);
+                // Do stuff with field here :-)
 
                 this.print(new String[] {
                         this.translate.t("turn.rollResult", new String[] {"" + sum()}),

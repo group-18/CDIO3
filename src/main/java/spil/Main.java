@@ -1,10 +1,16 @@
 package spil;
+
 import gui_main.GUI;
 
-
 public class Main {
-
     public static void main(String[] args) {
+        Board board = new Board();
+
+        GUI gui = new GUI(board.getFields());
+
+        Game game = new Game(gui, board);
+
+
         //The game-object is created
 
       /*  Game game = new Game();
@@ -26,8 +32,6 @@ public class Main {
         //the Game-class contains the game, and the the method play() plays it
         game.play();
 */
-
-      Board.boardgame(null);
 
     }
 }
