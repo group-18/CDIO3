@@ -137,5 +137,7 @@ public class Board {
         fields[23].setBackGroundColor(Color.BLUE);
         fields[23].setSubText("M5");
 
+
+        GUI gui = new GUI(fields);
     }
 }
