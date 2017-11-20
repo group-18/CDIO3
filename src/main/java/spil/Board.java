@@ -3,6 +3,7 @@ package spil;
 
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Street;
 import gui_main.GUI;
 import gui_resources.*;
 
@@ -25,9 +26,9 @@ public class Board {
         fields[0].setDescription("Start felt");
 
         fields[1] = new GUI_Street();
-        fields[1].setTitle("Burgerbaren")
-        fields[1].setBackGroundColor(Color.ORANGE)
-        fields[1].setSubText("M1")
+        fields[1].setTitle("Burgerbaren");
+        fields[1].setBackGroundColor(Color.ORANGE);
+        fields[1].setSubText("M1");
                 //.setDescription(translate.t("field.tower.description"))
 
         fields[2] = new GUI_Street();
@@ -85,83 +86,83 @@ public class Board {
                 //.setDescription(translate.t("field.the_pit.description"))
 
         fields[11] = new GUI_Street();
-        fields[11].setTitle("Swimmingpoolen")
-        fields[11].setBackGroundColor(Color.YELLOW)
-        fields[11].setSubText("M2")
+        fields[11].setTitle("Swimmingpoolen");
+        fields[11].setBackGroundColor(Color.YELLOW);
+        fields[11].setSubText("M2");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[12] = new GUI_Street()
-                .setTitle("Gratis parkering")
-                .setBackGroundColor(Color.WHITE)
-                .setSubText("")
+
+        fields[12] = new GUI_Street();
+        fields[12].setTitle("Gratis parkering");
+        fields[12].setBackGroundColor(Color.WHITE);
+        fields[12].setSubText("");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[13] = new GUI_Street()
-                .setTitle("Spillehallen")
-                .setBackGroundColor(Color.RED)
-                .setSubText("M3")
+
+        fields[13] = new GUI_Street();
+        fields[13].setTitle("Spillehallen");
+        fields[13].setBackGroundColor(Color.RED);
+        fields[13].setSubText("M3");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[14] = new GUI_Street()
-                .setTitle("Biografen")
-                .setBackGroundColor(Color.RED)
-                .setSubText("M3")
+
+        fields[14] = new GUI_Street();
+        fields[14].setTitle("Biografen");
+        fields[14].setBackGroundColor(Color.RED);
+        fields[14].setSubText("M3");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[15] = new GUI_Street()
-                .setTitle("Chance")
-                .setBackGroundColor(Color.WHITE)
-                .setSubText("?")
+
+        fields[15] = new GUI_Street();
+        fields[15].setTitle("Chance");
+        fields[15].setBackGroundColor(Color.WHITE);
+        fields[15].setSubText("?");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[16] = new GUI_Street()
-                .setTitle("Legetøjsbutikken")
-                .setBackGroundColor(Color.YELLOW)
-                .setSubText("M3")
+
+        fields[16] = new GUI_Street();
+        fields[16].setTitle("Legetøjsbutikken");
+        fields[16].setBackGroundColor(Color.YELLOW);
+        fields[16].setSubText("M3");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[17] = new GUI_Street()
-                .setTitle("Dyrehandlen")
-                .setBackGroundColor(Color.YELLOW)
-                .setSubText("M3")
+
+        fields[17] = new GUI_Street();
+        fields[17].setTitle("Dyrehandlen");
+        fields[17].setBackGroundColor(Color.YELLOW);
+        fields[17].setSubText("M3");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[18] = new GUI_Street()
-                .setTitle("Gå i fængsel")
-                .setBackGroundColor(Color.WHITE)
-                .setSubText("Gå i fængsel")
+
+        fields[18] = new GUI_Street();
+        fields[18].setTitle("Gå i fængsel");
+        fields[18].setBackGroundColor(Color.WHITE);
+        fields[18].setSubText("Gå i fængsel");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[19] = new GUI_Street()
-                .setTitle("Bowlinghallen")
-                .setBackGroundColor(Color.GREEN)
-                .setSubText("M4")
+
+        fields[19] = new GUI_Street();
+        fields[19].setTitle("Bowlinghallen");
+        fields[19].setBackGroundColor(Color.GREEN);
+        fields[19].setSubText("M4");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[20] = new GUI_Street()
-                .setTitle("Zoo")
-                .setBackGroundColor(Color.GREEN)
-                .setSubText("M4")
+
+        fields[20] = new GUI_Street();
+        fields[20].setTitle("Zoo");
+        fields[20].setBackGroundColor(Color.GREEN);
+        fields[20].setSubText("M4");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[21] = new GUI_Street()
-                .setTitle("Chance")
-                .setBackGroundColor(Color.WHITE)
-                .setSubText("?")
+
+        fields[21] = new GUI_Street();
+        fields[21].setTitle("Chance");
+        fields[21].setBackGroundColor(Color.WHITE);
+        fields[21].setSubText("?");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[22] = new GUI_Street()
-                .setTitle("Vandlandet")
-                .setBackGroundColor(Color.BLUE)
-                .setSubText("M5")
+
+        fields[22] = new GUI_Street();
+        fields[22].setTitle("Vandlandet");
+        fields[22].setBackGroundColor(Color.BLUE);
+        fields[22].setSubText("M5");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
-        fields[23] = new GUI_Street()
-                .setTitle("Strandpromenaden")
-                .setBackGroundColor(Color.BLUE)
-                .setSubText("M5")
+
+        fields[23] = new GUI_Street();
+        fields[23].setTitle("Strandpromenaden");
+        fields[23].setBackGroundColor(Color.BLUE);
+        fields[23].setSubText("M5");
                 //.setDescription(translate.t("field.goldmine.description"))
-                .build();
+
 
                 //GUI.create(fields);
                 //GUI(GUI_Field[24]);
