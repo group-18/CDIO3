@@ -108,8 +108,8 @@ public class Game {
             do {
                 //GUI.removeAllCars(currentPlayer.getName());
                 //GUI_Field.removeAllCars(currentPlayer.getName());
-                //GUI_Field.removeAllCars(currentPlayer.getName());
-                GUI_Field.removeAllCars();
+                GUI_Field.removeAllCars(currentPlayer.getName());
+                //GUI_Field.removeAllCars();
                 this.rollDies();
 
                 //GUI.setCar(this.sum(), currentPlayer.getName());
@@ -134,8 +134,8 @@ public class Game {
                     this.translate.t("turn.scoreCurrent", new String[] {"" + currentPlayer.getAmount()}),
                 });
 
-                //GUI_Player.setBalance(currentPlayer.getName(),currentPlayer.getAmount());
-                GUI_Player.setBalance(currentPlayer.getAmount());
+                GUI_Player.setBalance(currentPlayer.getName(),currentPlayer.getAmount());
+                //GUI_Player.setBalance(currentPlayer.getAmount());
 
             } while (this.sum() == 10);
 
