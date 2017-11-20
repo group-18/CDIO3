@@ -1,9 +1,8 @@
 package spil;
 
 
+import gui_fields.*;
 import gui_fields.GUI_Field;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Street;
 import gui_main.GUI;
 import gui_resources.*;
 
@@ -16,7 +15,7 @@ public class Board {
         //Creating fields in the GUI, with the different values stated in the assignment.
         GUI_Field[] fields = new GUI_Field[24];
 
-        fields[0] = new GUI_Street();
+        fields[0] = new GUI_Start();
         fields[0].setTitle("Start");
         fields[0].setSubText("Modtag M2");
         fields[0].setBackGroundColor(Color.PINK);
@@ -32,7 +31,7 @@ public class Board {
         fields[2].setBackGroundColor(Color.ORANGE);
         fields[2].setSubText("M1");
 
-        fields[3] = new GUI_Street();
+        fields[3] = new GUI_Chance();
         fields[3].setTitle("Chance");
         fields[3].setBackGroundColor(Color.WHITE);
         fields[3].setSubText("?");
@@ -47,10 +46,10 @@ public class Board {
         fields[5].setBackGroundColor(Color.GRAY);
         fields[5].setSubText("M1");
 
-        fields[6] = new GUI_Street();
-        fields[6].setTitle("Fængsel");
+        fields[6] = new GUI_Chance();
+        fields[6].setTitle("Chance");
         fields[6].setBackGroundColor(Color.WHITE);
-        fields[6].setSubText("På besøg");
+        fields[6].setSubText("?");
 
         fields[7] = new GUI_Street();
         fields[7].setTitle("Museet");
@@ -62,7 +61,7 @@ public class Board {
         fields[8].setBackGroundColor(Color.PINK);
         fields[8].setSubText("M2");
 
-        fields[9] = new GUI_Street();
+        fields[9] = new GUI_Chance();
         fields[9].setTitle("Chance");
         fields[9].setBackGroundColor(Color.WHITE);
         fields[9].setSubText("?");
@@ -92,7 +91,7 @@ public class Board {
         fields[14].setBackGroundColor(Color.RED);
         fields[14].setSubText("M3");
 
-        fields[15] = new GUI_Street();
+        fields[15] = new GUI_Chance();
         fields[15].setTitle("Chance");
         fields[15].setBackGroundColor(Color.WHITE);
         fields[15].setSubText("?");
@@ -107,10 +106,10 @@ public class Board {
         fields[17].setBackGroundColor(Color.YELLOW);
         fields[17].setSubText("M3");
 
-        fields[18] = new GUI_Street();
-        fields[18].setTitle("Gå i fængsel");
+        fields[18] = new GUI_Chance();
+        fields[18].setTitle("Chance");
         fields[18].setBackGroundColor(Color.WHITE);
-        fields[18].setSubText("Gå i fængsel");
+        fields[18].setSubText("?");
 
         fields[19] = new GUI_Street();
         fields[19].setTitle("Bowlinghallen");
@@ -122,7 +121,7 @@ public class Board {
         fields[20].setBackGroundColor(Color.GREEN);
         fields[20].setSubText("M4");
 
-        fields[21] = new GUI_Street();
+        fields[21] = new GUI_Chance();
         fields[21].setTitle("Chance");
         fields[21].setBackGroundColor(Color.WHITE);
         fields[21].setSubText("?");
