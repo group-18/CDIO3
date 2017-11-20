@@ -1,0 +1,32 @@
+writeName:Enter player {{ #0 }}'s name
+
+
+welcome1:Welcome.
+welcome2:The game require two players, each with a starting stash of 1000 money, which in turns throws with two dice.
+welcome3:The sum of the dice determines the placement on the board, which contains 11 fields (field nr.: 2-12), each field adds/withdraws a value from the stash.
+welcome4:The first player that reaches a stash, with a value of 3000, wins the game.
+
+
+turn.currentPlayer:It is {{ #0 }}s turn.
+turn.rollResult:You throwed {{ #0 }}.
+turn.position:You have landed on '{{ #0 }}'.
+turn.score:Yield {{ #0 }}.
+turn.scoreCurrent:Your stashs value is now : {{ #0 }}
+
+field.tower.description:'Tower' is known for its breathtaking view, unfortunately, most suffers from fear of hights, when they reach a hight of 500m.\n You think ahead, you think fast, you sell pills that prevents fear of hights, and earns 250.
+field.crater.description:'Crater' smells like old dinosaurs, moondust, and assorted spaceship trash from the latest Apollo-mission. \n You will need to take a taxi away from the attraction, which, according to the taxidriver, will cost 25.
+field.palace_gates.description:The wall is massive, but your picklocking-skills from countless hours of Skyrim gameplay has paid off, and you teach some shady people to open doors with your skills.
+field.cold_desert.description:You clearly remember that your mother asked you to take another shirt with you, in which you answered, that it never is cold in the desert. \n Too proud the acknowledge your mistakes, you have to buy an extra warm sweater from a nearby shop, where everything stands in a foreign language.
+field.walled_city.description:You arrive in 'Walled city', which was called 'city' before you arrived. Your abillities with bricks, and your knowledge in your previous favorite subject crafting, finally pays off, and you earn a shilling.
+field.monastery.description:You arrive to 'Monastery', where it floods with tourists from around the world, each with their belt bag, the newest iPad, for pictures, and giant sunhats \n You acknowledge that large groups of people is not something your good at. You therefore take your travelingcatalog up, fumblingly, and think to yourself: 'Now i have seen it, in some way'.
+field.black_cave.description:You thought that 'Black cave' sounded exciting on TripAdvisor, and almost like pure adrenaline. You get dissapointed. It stands 'No refunds' on the ticket.
+field.huts_in_the_mountain.description:This place is cozy, its almost like a fairytale, with view over the beautiful mountains, singing birds, and funny creatures that looks like frogs, which shouts: 'Mrlglglg'.
+field.the_werewall.description:You laugh at the attractions name, but you realise that it is desperate to be funny at this moment, and therefore need to write in og derved bliver man nødt til at skrive i brackets, what it means. You quickly move on (or 'YoumuuuhOn' ha ha ... no).
+field.the_pit.description:You regret that, you have spent so much time, going down in a hole, but you lacked an achievement.
+field.goldmine.description:## JACKPOT ## You find a huge lump of gold with a value of 650. You scream 'gg ez', before you switch turn.
+
+
+
+scoreboard.title:-- Result --
+scoreboard.winner:The winner is {{ #0 }}.
+scoreboard.winnerText:(the winner).
