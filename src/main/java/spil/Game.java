@@ -8,6 +8,9 @@ import gui_resources.*;
 
 
 public class Game {
+
+    GUI gui;
+
     private Dice[] dies;
 
     private Player[] players;
@@ -70,10 +73,10 @@ public class Game {
 
     public Game()
     {
-        this.translate = new Translate("da_DK");
+        //this.translate = new Translate("da_DK");
         this.dies = new Dice[] {new Dice(), new Dice()};
 
-        Board.boardgame(this.translate);
+        //Board.boardgame(this.translate);
     }
 
     public void askForPlayers(int numberOfPlayers)
@@ -81,14 +84,15 @@ public class Game {
         this.players = new Player[numberOfPlayers];
 
         for (int i = 0; i < numberOfPlayers; i++) {
-            String playerName = GUI.getUserString(
+            //String playerName = GUI.getUserString(
+            String playerName = gui.getUserString(
                     this.translate.t("writeName", new String[] {"" + (i + 1)})
             );
 
             this.players[i] = new Player(playerName);
 
             //GUI.addPlayer(this.players[i].getName(), this.players[i].getAmount());
-            GUI.addPlayer(new GUI_Player(this.players[i].getName(), this.players[i].getAmount()));
+            gui.addPlayer(new GUI_Player(this.players[i].getName(), this.players[i].getAmount()));
         }
     }
 
@@ -103,19 +107,20 @@ public class Game {
 
             this.print(this.translate.t("turn.currentPlayer", new String[] {currentPlayer.getName()}));
             //Adds a button that executes the following do-while-statement, remove this for easy unittesting
-            GUI.getUserButtonPressed("", "Kast");
+            //GUI.getUserButtonPressed("", "Kast");
+            gui.getUserButtonPressed("", "Kast");
 
             do {
                 //GUI.removeAllCars(currentPlayer.getName());
                 //GUI_Field.removeAllCars(currentPlayer.getName());
-                GUI_Field.removeAllCars(currentPlayer.getName());
-                //GUI_Field.removeAllCars();
+                //GUI_Field.removeAllCars(currentPlayer.getName());
                 this.rollDies();
 
                 //GUI.setCar(this.sum(), currentPlayer.getName());
-                GUI_Field.setCar(this.sum(), currentPlayer.getName());
+                //GUI_Field.setCar(this.sum(), currentPlayer.getName());
                 //GUI.setDice(this.dies[0].getFaceValue(), 3, 8, this.dies[1].getFaceValue(), 4, 8);
-                GUI_Board.setDice(this.dies[0].getFaceValue(), 3, 8, this.dies[1].getFaceValue(), 4, 8);
+                //GUI_Board.setDice(this.dies[0].getFaceValue(), 3, 8, this.dies[1].getFaceValue(), 4, 8);
+                gui.setDice(this.dies[0].getFaceValue(), 3, 8, this.dies[1].getFaceValue(), 4, 8);
 
 
                 int fieldNumber = this.sum() - 2;
@@ -134,7 +139,7 @@ public class Game {
                     this.translate.t("turn.scoreCurrent", new String[] {"" + currentPlayer.getAmount()}),
                 });
 
-                GUI_Player.setBalance(currentPlayer.getName(),currentPlayer.getAmount());
+                //GUI_Player.setBalance(currentPlayer.getName(),currentPlayer.getAmount());
                 //GUI_Player.setBalance(currentPlayer.getAmount());
 
             } while (this.sum() == 10);
@@ -204,7 +209,8 @@ public class Game {
 
     private void print(String msg)
     {
-        GUI.showMessage(msg);
+        //GUI.showMessage(msg);
+        gui.showMessage(msg);
     }
 
 

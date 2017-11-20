@@ -3,9 +3,11 @@ import gui_main.GUI;
 
 
 public class Main {
+
     public static void main(String[] args) {
         //The game-object is created
-        Game game = new Game();
+
+      /*  Game game = new Game();
 
         GUI gui = new GUI();
 
@@ -23,7 +25,9 @@ public class Main {
         game.askForPlayers(amountOfPlayers);
         //the Game-class contains the game, and the the method play() plays it
         game.play();
+*/
 
+      Board.boardgame(null);
 
     }
 }
