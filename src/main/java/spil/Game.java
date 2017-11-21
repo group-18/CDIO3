@@ -2,6 +2,8 @@ package spil;
 
 import gui_main.GUI;
 import gui_fields.*;
+import gui_codebehind.Observable;
+import gui_resources.Attrs;
 
 public class Game {
 
@@ -74,7 +76,7 @@ public class Game {
         this.gui = gui;
         this.board = board;
 
-        //this.translate = new Translate("da_DK");
+        this.translate = new Translate("da_DK");
         this.dies = new Dice[]{new Dice(), new Dice()};
 
         //Board.boardgame(this.translate);
@@ -139,7 +141,6 @@ public class Game {
                     this.translate.t("turn.score", new String[] {"" + (score > 0 ? "+" : "") + score}),
                     this.translate.t("turn.scoreCurrent", new String[] {"" + currentPlayer.getAmount()}),
                 });
-
                 //GUI_Player.setBalance(currentPlayer.getName(),currentPlayer.getAmount());
                 //GUI_Player.setBalance(currentPlayer.getAmount());
 
