@@ -14,9 +14,7 @@ public class Main {
         //The askForPlayer() can be changed if more players are needed to play the game
         int amountOfPlayers = gui.getUserInteger("Indtast antal spillere: ");
 
-        if (amountOfPlayers >= 2 && amountOfPlayers <= 4) {
-            game.askForPlayers(amountOfPlayers);
-        } else {
+        while (amountOfPlayers < 2 || amountOfPlayers > 4){
             amountOfPlayers = gui.getUserInteger("Ikke tilladt! Indtast antal spillere: ");
         }
 
