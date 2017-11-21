@@ -3,7 +3,6 @@ package spil;
 import gui_main.GUI;
 import gui_fields.*;
 
-
 public class Game {
 
     private GUI gui;
@@ -86,7 +85,6 @@ public class Game {
         this.players = new Player[numberOfPlayers];
 
         for (int i = 0; i < numberOfPlayers; i++) {
-            //String playerName = GUI.getUserString(
             String playerName = gui.getUserString(
                     this.translate.t("writeName", new String[] {"" + (i + 1)})
             );
@@ -109,7 +107,6 @@ public class Game {
 
             this.print(this.translate.t("turn.currentPlayer", new String[] {currentPlayer.getName()}));
             //Adds a button that executes the following do-while-statement, remove this for easy unittesting
-            //GUI.getUserButtonPressed("", "Kast");
             gui.getUserButtonPressed("", "Kast");
 
             do {
@@ -213,7 +210,6 @@ public class Game {
 
     private void print(String msg)
     {
-        //GUI.showMessage(msg);
         gui.showMessage(msg);
     }
 
