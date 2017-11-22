@@ -1,6 +1,7 @@
 package spil;
 
 
+import gui_fields.GUI_Chance;
 import gui_fields.GUI_Street;
 
 import java.awt.*;
@@ -8,6 +9,7 @@ import java.awt.*;
 
 public class Board {
     private GUI_Street[] fields;
+    private GUI_Chance[] chance;
 
     public Board()
     {
@@ -155,5 +157,56 @@ public class Board {
         this.fields[23].setTitle("Strandpromenaden");
         this.fields[23].setBackGroundColor(Color.BLUE);
         this.fields[23].setSubText("M5");
+    }
+
+    private void initChance(){
+        this.chance = new GUI_Chance[10];
+
+        this.chance[0] = new GUI_Chance();
+        this.chance[0].setDescription("Placeholder");
+        this.chance[0].setNumber(0);
+
+        this.chance[1] = new GUI_Chance();
+        this.chance[1].setDescription("Placeholder");
+        this.chance[1].setNumber(1);
+
+        this.chance[2] = new GUI_Chance();
+        this.chance[2].setDescription("Placeholder");
+        this.chance[2].setNumber(3);
+
+        this.chance[3] = new GUI_Chance();
+        this.chance[3].setDescription("Placeholder");
+        this.chance[3].setNumber(2);
+
+        this.chance[4] = new GUI_Chance();
+        this.chance[4].setDescription("Placeholder");
+        this.chance[4].setNumber(0);
+
+        this.chance[5] = new GUI_Chance();
+        this.chance[5].setDescription("Placeholder");
+        this.chance[5].setNumber(1);
+
+        this.chance[6] = new GUI_Chance();
+        this.chance[6].setDescription("Placeholder");
+        this.chance[6].setNumber(2);
+
+        this.chance[7] = new GUI_Chance();
+        this.chance[7].setDescription("Placeholder");
+        this.chance[7].setNumber(1);
+
+        this.chance[8] = new GUI_Chance();
+        this.chance[8].setDescription("Placeholder");
+        this.chance[8].setNumber(3);
+
+        this.chance[9] = new GUI_Chance();
+        this.chance[9].setDescription("Placeholder");
+        this.chance[9].setNumber(2);
+
+    }
+
+    public GUI_Chance getChance(){
+        int x = (int) Math.random()*chance.length+1;
+        return chance[x];
+
     }
 }

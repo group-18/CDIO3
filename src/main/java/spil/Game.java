@@ -79,7 +79,6 @@ public class Game {
         this.translate = new Translate("da_DK");
         this.dies = new Dice[]{new Dice(), new Dice()};
 
-        //Board.boardgame(this.translate);
     }
 
     public void askForPlayers(int numberOfPlayers)
@@ -93,7 +92,6 @@ public class Game {
 
             this.players[i] = new Player(playerName);
 
-            //GUI.addPlayer(this.players[i].getName(), this.players[i].getAmount());
             gui.addPlayer(new GUI_Player(this.players[i].getName(), this.players[i].getAmount()));
         }
     }
@@ -108,6 +106,7 @@ public class Game {
             currentPlayer = getNextPlayer();
 
             this.print(this.translate.t("turn.currentPlayer", new String[] {currentPlayer.getName()}));
+
             //Adds a button that executes the following do-while-statement, remove this for easy unittesting
             gui.getUserButtonPressed("", "Kast");
 
