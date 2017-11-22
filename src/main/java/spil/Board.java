@@ -69,7 +69,7 @@ public class Board {
         this.fields[5].setSubText("M1");
 
         this.fields[6] = new GUI_Street();
-        this.fields[6].setTitle("Fængsel");
+        this.fields[6].setTitle("Chance");
         this.fields[6].setBackGroundColor(Color.WHITE);
         this.fields[6].setSubText("På besøg");
 
@@ -129,9 +129,9 @@ public class Board {
         this.fields[17].setSubText("M3");
 
         this.fields[18] = new GUI_Street();
-        this.fields[18].setTitle("Gå i fængsel");
+        this.fields[18].setTitle("Chance");
         this.fields[18].setBackGroundColor(Color.WHITE);
-        this.fields[18].setSubText("Gå i fængsel");
+        this.fields[18].setSubText("?");
 
         this.fields[19] = new GUI_Street();
         this.fields[19].setTitle("Bowlinghallen");
