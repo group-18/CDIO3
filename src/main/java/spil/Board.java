@@ -71,7 +71,7 @@ public class Board {
         this.fields[6] = new GUI_Street();
         this.fields[6].setTitle("Chance");
         this.fields[6].setBackGroundColor(Color.WHITE);
-        this.fields[6].setSubText("På besøg");
+        this.fields[6].setSubText("?");
 
         this.fields[7] = new GUI_Street();
         this.fields[7].setTitle("Museet");
