@@ -1,6 +1,7 @@
 package spil;
 
 
+import gui_fields.GUI_Car;
 import gui_fields.GUI_Chance;
 import gui_fields.GUI_Street;
 
@@ -209,4 +210,5 @@ public class Board {
         return chance[x];
 
     }
+
 }

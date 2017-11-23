@@ -5,18 +5,31 @@ import gui_fields.*;
 import gui_codebehind.Observable;
 import gui_resources.Attrs;
 
+import javax.swing.*;
+import java.awt.*;
+import java.lang.reflect.Type;
+import java.util.HashMap;
+
+import static gui_fields.GUI_Car.*;
+import static gui_fields.GUI_Car.Pattern.FILL;
+import static gui_fields.GUI_Car.Type.CAR;
+import static java.awt.Color.*;
+
 public class Game {
 
     private GUI gui;
 
     private Board board;
 
+    private HashMap<Integer, JLabel> cars = new HashMap<Integer, JLabel>();
     private Dice[] dies;
 
     private Player[] players;
     private int playerIndex = 0;
 
     private Translate translate;
+
+    private GUI_Car car;
 
     private String[][] fields = new String[][] {
         {"burgerbaren", "Burgerbaren"},
@@ -90,9 +103,10 @@ public class Game {
                     this.translate.t("writeName", new String[] {"" + (i + 1)})
             );
 
-            this.players[i] = new Player(playerName);
+            this.players[i] = new Player(playerName, numberOfPlayers);
 
             gui.addPlayer(new GUI_Player(this.players[i].getName(), this.players[i].getAmount()));
+            this.car = new GUI_Car(Color.YELLOW,Color.BLUE,CAR,Pattern.FILL);
         }
     }
 
@@ -111,11 +125,11 @@ public class Game {
             gui.getUserButtonPressed("", "Kast");
 
             do {
+
                 //GUI.removeAllCars(currentPlayer.getName());
                 //GUI_Field.removeAllCars(currentPlayer.getName());
                 //GUI_Field.removeAllCars(currentPlayer.getName());
                 this.rollDies();
-
                 //GUI.setCar(this.sum(), currentPlayer.getName());
                 //GUI_Field.setCar(this.sum(), currentPlayer.getName());
                 //GUI.setDice(this.dies[0].getFaceValue(), 3, 8, this.dies[1].getFaceValue(), 4, 8);
