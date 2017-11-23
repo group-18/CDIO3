@@ -160,7 +160,7 @@ public class Board {
         this.fields[23].setSubText("M5");
     }
 
-    private void initChance(){
+    /**private void initChance(){
         this.chance = new GUI_Chance[10];
 
         this.chance[0] = new GUI_Chance();
@@ -204,10 +204,55 @@ public class Board {
         this.chance[9].setNumber(2);
 
     }
-
-    public GUI_Chance getChance(){
+*/
+    public int getChance(){
         int x = (int) Math.random()*chance.length+1;
-        return chance[x];
+        String text = "";
+        int value=0;
+        switch (x){
+            case 1: text = "Du kikkede på solen, -M1";
+                    value = -1;
+                    break;
+
+            case 2: text = "Banken har fødselsdag, -M2";
+                    value = -2;
+                    break;
+
+            case 3: text = "Du kikkede på din sidemakkers kort, -M1";
+                    value = -1;
+                    break;
+
+            case 4: text = "Du brugte hele din SU på en kaffe på CBS, -M3";
+                    value = -3;
+                    break;
+
+            case 5: text = "Du er faret vildt og har købt en GPS, -M2";
+                    value = -2;
+                    break;
+
+            case 6: text = "Din komfirmationsopsparing forrentes, +M1";
+                    value = 1;
+                    break;
+
+            case 7: text = "Du indkasserer din børneopsparing, +M4";
+                    value = 4;
+                    break;
+
+            case 8: text = "Du har fødselsdag, +M1";
+                    value = 1;
+                    break;
+
+            case 9: text = "Solen kikker på dig, +M1";
+                    value = 1;
+                    break;
+
+            case 10: text = "Du har samlet pant, +M2";
+                    value = 2;
+                    break;
+
+        }
+        System.out.println(text);
+        return value;
 
     }
 

@@ -90,7 +90,7 @@ public class Game {
         this.board = board;
 
         this.translate = new Translate("da_DK");
-        this.dies = new Dice[]{new Dice(), new Dice()};
+        this.dies = new Dice[]{new Dice()};
 
     }
 

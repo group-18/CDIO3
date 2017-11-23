@@ -11,12 +11,14 @@ public class Main {
         //The game-object is created
         Game game = new Game(gui, board);
 
+
         //The askForPlayer() can be changed if more players are needed to play the game
         int amountOfPlayers = gui.getUserInteger("Indtast antal spillere: ");
 
         while (amountOfPlayers < 2 || amountOfPlayers > 4){
             amountOfPlayers = gui.getUserInteger("Ikke tilladt! Indtast antal spillere: ");
         }
+
 
         game.askForPlayers(amountOfPlayers);
 
