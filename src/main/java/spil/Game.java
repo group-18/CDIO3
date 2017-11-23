@@ -134,11 +134,12 @@ public class Game {
                 //GUI_Field.setCar(this.sum(), currentPlayer.getName());
                 //GUI.setDice(this.dies[0].getFaceValue(), 3, 8, this.dies[1].getFaceValue(), 4, 8);
                 //GUI_Board.setDice(this.dies[0].getFaceValue(), 3, 8, this.dies[1].getFaceValue(), 4, 8);
-                gui.setDice(this.dies[0].getFaceValue(), 3, 8, this.dies[1].getFaceValue(), 4, 8);
+                gui.setDie(this.dies[0].getFaceValue());
 
 
                 int fieldNumber = this.sum() - 2;
                 GUI_Street field = this.board.getField(fieldNumber);
+
                 // Do stuff with field here :-)
 
                 this.print(new String[] {
