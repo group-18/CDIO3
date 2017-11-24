@@ -29,6 +29,11 @@ public class Player {
         this.stash.addAmount(numberToAdd);
     }
 
+    /**
+     * Returns the stash amount, which is based on numberofplayers
+     * @param numberofplayers
+     * @return int
+     */
 
 public int startAmount(int numberofplayers){
     if (numberofplayers==2){

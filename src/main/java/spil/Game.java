@@ -21,7 +21,7 @@ public class Game {
 
     private Board board;
 
-    private HashMap<Integer, JLabel> cars = new HashMap<Integer, JLabel>();
+    private HashMap<Integer, JLabel> cars = new HashMap<>();
     private Dice[] dies;
 
     private Player[] players;
@@ -107,6 +107,7 @@ public class Game {
 
             gui.addPlayer(new GUI_Player(this.players[i].getName(), this.players[i].getAmount()));
             this.car = new GUI_Car(Color.YELLOW,Color.BLUE,CAR,Pattern.FILL);
+
         }
     }
 
@@ -132,8 +133,7 @@ public class Game {
                 this.rollDies();
                 //GUI.setCar(this.sum(), currentPlayer.getName());
                 //GUI_Field.setCar(this.sum(), currentPlayer.getName());
-                //GUI.setDice(this.dies[0].getFaceValue(), 3, 8, this.dies[1].getFaceValue(), 4, 8);
-                //GUI_Board.setDice(this.dies[0].getFaceValue(), 3, 8, this.dies[1].getFaceValue(), 4, 8);
+
                 gui.setDie(this.dies[0].getFaceValue());
 
 
