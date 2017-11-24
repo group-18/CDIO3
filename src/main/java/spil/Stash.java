@@ -1,15 +1,14 @@
 package spil;
 
 
-public class Stash {
+import gui_fields.GUI_Player;
+
+public class Stash extends GUI_Player{
     private int amount;
 
     /**
      * Makes the Stash possible to use for other assignments.
      */
-    public Stash()
-    {
-    }
 
     /**
      * Initializes the stash with a start amount.
@@ -22,7 +21,8 @@ public class Stash {
 
     public int getAmount()
     {
-        return this.amount;
+
+        return getBalance();
     }
 
     /**
@@ -32,6 +32,7 @@ public class Stash {
     public void addAmount(int numberToAdd)
     {
         this.amount += numberToAdd;
+        this.setBalance(numberToAdd);
 
         if (this.amount < 0) {
             this.amount = 0;
