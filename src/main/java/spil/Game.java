@@ -126,18 +126,11 @@ public class Game {
             gui.getUserButtonPressed("", "Kast");
 
             do {
-
-                //GUI.removeAllCars(currentPlayer.getName());
-                //GUI_Field.removeAllCars(currentPlayer.getName());
-                //GUI_Field.removeAllCars(currentPlayer.getName());
                 this.rollDies();
-                //GUI.setCar(this.sum(), currentPlayer.getName());
-                //GUI_Field.setCar(this.sum(), currentPlayer.getName());
 
                 gui.setDie(this.dies[0].getFaceValue());
 
-
-                int fieldNumber = this.sum() - 2;
+                int fieldNumber = this.sum();
                 GUI_Street field = this.board.getField(fieldNumber);
                 field.setCar(currentPlayer, true);
                 // Do stuff with field here :-)
@@ -150,6 +143,7 @@ public class Game {
 
                 int score = this.fieldValues[fieldNumber];
                 currentPlayer.addAmount(score);
+                currentPlayer.setBalance(currentPlayer.getAmount());
 
                 this.print(new String[] {
                     this.translate.t("turn.score", new String[] {"" + (score > 0 ? "+" : "") + score}),
@@ -157,7 +151,7 @@ public class Game {
                 });
                 //GUI_Player.setBalance(currentPlayer.getName(),currentPlayer.getAmount());
                 //GUI_Player.setBalance(currentPlayer.getAmount());
-
+                currentPlayer.getBalance();
             } while (this.sum() == 10);
 
             winnerFound = currentPlayer.getAmount() >= 3000;
