@@ -139,7 +139,7 @@ public class Game {
 
                 int fieldNumber = this.sum() - 2;
                 GUI_Street field = this.board.getField(fieldNumber);
-
+                field.setCar(currentPlayer, true);
                 // Do stuff with field here :-)
 
                 this.print(new String[] {

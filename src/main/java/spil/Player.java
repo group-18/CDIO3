@@ -1,7 +1,9 @@
 package spil;
 
 
-public class Player {
+import gui_fields.GUI_Player;
+
+public class Player extends GUI_Player {
     private String name;
     private Stash stash;
     private int numberofplayers;
@@ -9,6 +11,7 @@ public class Player {
     //Creates a player, with the name that the user types in. It also creates a Stash with the startamount proporti
     public Player(String name, int numberofplayers)
     {
+        super(name);
         this.name = name;
         this.stash = new Stash(startAmount(numberofplayers));
     }
