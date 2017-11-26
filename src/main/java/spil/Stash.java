@@ -1,32 +1,46 @@
 package spil;
 
-
+/**
+ *
+ */
 public class Stash {
-    private int amount;
 
-    //Makes the Stash possible to use for other assignments.
+    private int amount = 0;
+
+    /**
+     * Default constructor
+     * Creates a new Stash
+     */
     public Stash()
     {
+
     }
 
-    //Initializes the stash with a start amount.
+    /**
+     * Creates a new Stash with a start amount.
+     * @param startAmount The amount to be stored in the Stash
+     */
     public Stash(int startAmount)
     {
         this.amount = startAmount;
     }
 
+    /**
+     * Add amount to this Stash
+     * @param amount The amount to add
+     */
+    public void addAmount(int amount)
+    {
+        this.amount += amount;
+    }
+
+    /**
+     * Get this Stash current amount
+     * @return The amount of this Stash
+     */
     public int getAmount()
     {
         return this.amount;
     }
 
-    //This method adds an amount to the players stash, and makes sure that the players balance cant be negative.
-    public void addAmount(int numberToAdd)
-    {
-        this.amount += numberToAdd;
-
-        if (this.amount < 0) {
-            this.amount = 0;
-        }
-    }
 }
