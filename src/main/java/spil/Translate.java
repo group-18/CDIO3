@@ -5,33 +5,67 @@ import java.io.*;
 import java.util.HashMap;
 
 public class Translate {
-    private String lang;
+    private static Translate instance;
+
+    private static String fileLocation = "/languages/";
+    private static String lang = "da_DK";
 
     private HashMap<String, String> translations;
 
 
-    public Translate(String lang)
+    private Translate()
     {
-        this.lang = lang;
         this.translations = new HashMap<>();
-
-        this.parseFile("/languages/" + this.lang + ".txt");
+        this.parseFile(Translate.fileLocation + Translate.lang + ".txt");
     }
 
 
-    public String getLang()
+    public static void setFileLocation(String location)
     {
-        return this.lang;
+        Translate.fileLocation = location;
     }
 
 
-    public Translate changeLang(String lang)
+    public static Translate getInstance()
     {
-        return new Translate(lang);
+        if (Translate.instance == null) {
+            Translate.instance = new Translate();
+        }
+
+        return Translate.instance;
     }
 
 
-    public String t(String key)
+    public static Translate setLang(String lang)
+    {
+        if (! lang.equals(Translate.lang)) {
+            Translate.lang = lang;
+            Translate.instance = new Translate();
+        }
+
+        return Translate.instance;
+    }
+
+
+    public static String getLang()
+    {
+        return Translate.lang;
+    }
+
+
+    public static String t(String key)
+    {
+        return Translate.getInstance().get(key);
+    }
+
+
+    public static String t(String key, String[] variables)
+    {
+        return Translate.getInstance().get(key, variables);
+    }
+
+
+    private String get(String key)
     {
         if (! this.translations.containsKey(key)) {
             return key;
@@ -47,7 +81,7 @@ public class Translate {
     }
 
 
-    public String t(String key, String[] variables)
+    private String get(String key, String[] variables)
     {
         String translation = this.t(key);
 
