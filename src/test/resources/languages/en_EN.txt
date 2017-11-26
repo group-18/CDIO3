@@ -1,0 +1,4 @@
+writeName:Enter player {{ #0 }}'s name
+
+
+welcome1:Welcome.
