@@ -27,13 +27,11 @@ public class Game {
         Player[] players = new Player[numberOfPlayers];
         for (int i=0; i<players.length;i++){
             String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
-            players[i] = new Player(name, startamount);
+            players[i] = new Player(name, smartStash(numberOfPlayers));
             this.gui.addPlayer(players[i].getGuiPlayer());
         }
 
-        smartStash(numberOfPlayers);
-
-
+        
     }
 
     private int smartStash(int numberOfPlayers) {
