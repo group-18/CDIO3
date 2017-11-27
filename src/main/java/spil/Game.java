@@ -22,11 +22,14 @@ public class Game {
 
     public void play()
     {
-        int numberOfPlayers = this.gui.getUserInteger("<PLACEHOLDER> min. 2, max 4",2,4);
+        int numberOfPlayers = this.gui.getUserInteger(Translate.t("welcome1.getNumberOfPlayer"),2,4);
+
         Player[] players = new Player[numberOfPlayers];
         for (int i=0; i<players.length;i++){
-            String name = this.gui.getUserString("<PLACEHOLDER> name");
-            players[i] = new Player(name, smartStash(numberOfPlayers));
+<<<<<<< Updated upstream
+            String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
+            players[i] = new Player(name, startamount);
+>>>>>>> Stashed changes
             this.gui.addPlayer(players[i].getGuiPlayer());
         }
 
