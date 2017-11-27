@@ -77,7 +77,7 @@ public class Board {
     private Field[] createFields()
     {
         return new Field[] {
-            new StartField() .setName("Start") .setBackgroundColor(Color.GREEN),
+            new StartField() .setName("Start") .setSubDescription("") .setBackgroundColor(Color.GREEN),
             new HouseField(Translate.t("board.field.burgerbaren.description"), "1").setBackgroundColor(Color.gray),
             new HouseField(Translate.t("board.field.pizzeriaet.description"), "1").setBackgroundColor(Color.gray),
             new ChanceField() .setName("Chance"),
