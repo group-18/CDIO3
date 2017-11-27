@@ -81,7 +81,7 @@ public class Game {
     }
 
     public void playRound(Player currentPlayer){
-        this.gui.getUserButtonPressed("<PLACEHOLDER> Kast med terning", "Kast");
+        this.gui.getUserButtonPressed(Translate.t("kast.rollDie"), "Kast");
         this.die.roll();
         int sum = this.die.getFaceValue();
         gui.setDie(this.die.getFaceValue());

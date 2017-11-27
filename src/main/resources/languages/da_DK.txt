@@ -1,6 +1,8 @@
 welcome1.getNumberOfPlayer:Indtast antal spillere, mindst 2 og maksimum 4:
 welcome2.getNamePlayer:Indtast navn på spillere:
 
+kast.rollDie:Kast med terning
+
 board.field.burgerbaren.description:Burgerbaren
 board.field.pizzeriaet.description:Pizzeriaet
 board.field.slikbutikken.description:Slikbutikken
