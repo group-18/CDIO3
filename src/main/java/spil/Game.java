@@ -14,6 +14,7 @@ public class Game {
     private Player players[];
     private int startamount;
     private boolean numberofplayersmet = false;
+    private int playerIndex = 0;
     private Game()
     {
         this.board = new Board();
@@ -22,11 +23,13 @@ public class Game {
 
 
     public void play() {
-
+        Player currentPlayer;
         criteriaMet();
 
         do {
+            currentPlayer = getNextPlayer();
             // Add Game Logic Here
+            currentPlayer.addBalance(2);
             
         }
         while (players[1].bankrupt());
@@ -64,6 +67,15 @@ public class Game {
             return startamount=16;
         }
         return startamount=20;
+    }
+
+    private Player getNextPlayer()
+    {
+        if (this.playerIndex >= this.players.length) {
+            this.playerIndex = 0;
+        }
+
+        return this.players[this.playerIndex++];
     }
 
 
