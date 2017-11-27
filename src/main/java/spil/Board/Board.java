@@ -3,6 +3,8 @@ package spil.Board;
 import gui_fields.GUI_Field;
 import spil.Translate;
 
+import java.awt.*;
+
 
 public class Board {
 
@@ -75,30 +77,30 @@ public class Board {
     private Field[] createFields()
     {
         return new Field[] {
-            new StartField(),
-            new HouseField(Translate.t("board.field.burgerbaren.description"), "1"),
-            new HouseField(Translate.t("board.field.pizzariaet.description"), "1"),
+            new StartField() .setBackgroundColor(Color.GREEN),
+            new HouseField(Translate.t("board.field.burgerbaren.description"), "1").setBackgroundColor(Color.gray),
+            new HouseField(Translate.t("board.field.pizzeriaet.description"), "1").setBackgroundColor(Color.gray),
             new ChanceField(),
-            new HouseField(Translate.t("board.field.slikbutikken.description"), "1"),
-            new HouseField(Translate.t("board.field.iskiosken.description"), "1"),
+            new HouseField(Translate.t("board.field.slikbutikken.description"), "1").setBackgroundColor(Color.cyan),
+            new HouseField(Translate.t("board.field.iskiosken.description"), "1").setBackgroundColor(Color.cyan),
             new PrisonField(true),
-            new HouseField(Translate.t("board.field.museet.description"), "2"),
-            new HouseField(Translate.t("board.field.biblioteket.description"), "2"),
+            new HouseField(Translate.t("board.field.museet.description"), "2").setBackgroundColor(Color.pink),
+            new HouseField(Translate.t("board.field.biblioteket.description"), "2").setBackgroundColor(Color.pink),
             new ChanceField(),
-            new HouseField(Translate.t("board.field.skaterparken.description"), "2"),
-            new HouseField(Translate.t("board.field.swimmingpoolen.description"), "2"),
+            new HouseField(Translate.t("board.field.skaterparken.description"), "2").setBackgroundColor(Color.orange),
+            new HouseField(Translate.t("board.field.swimmingpoolen.description"), "2").setBackgroundColor(Color.orange),
             new ParkingField(),
-            new HouseField(Translate.t("board.field.spillehallen.description"), "3"),
-            new HouseField(Translate.t("board.field.biografen.description"), "3"),
+            new HouseField(Translate.t("board.field.spillehallen.description"), "3").setBackgroundColor(Color.red),
+            new HouseField(Translate.t("board.field.biografen.description"), "3").setBackgroundColor(Color.red),
             new ChanceField(),
-            new HouseField(Translate.t("board.field.legetøjsbutikken.description"), "3"),
-            new HouseField(Translate.t("board.field.dyrehandlen.description"), "3"),
+            new HouseField(Translate.t("board.field.legetøjsbutikken.description"), "3").setBackgroundColor(Color.yellow),
+            new HouseField(Translate.t("board.field.dyrehandlen.description"), "3").setBackgroundColor(Color.yellow),
             new PrisonField(false),
-            new HouseField(Translate.t("board.field.bowlinghallen.description"), "4"),
-            new HouseField(Translate.t("board.field.zoo.description"), "4"),
+            new HouseField(Translate.t("board.field.bowlinghallen.description"), "4").setBackgroundColor(Color.green),
+            new HouseField(Translate.t("board.field.zoo.description"), "4").setBackgroundColor(Color.green),
             new ChanceField(),
-            new HouseField(Translate.t("board.field.vandlandet.description"), "5"),
-            new HouseField(Translate.t("board.field.strandpromenaden.description"), "5"),
+            new HouseField(Translate.t("board.field.vandlandet.description"), "5").setBackgroundColor(Color.blue),
+            new HouseField(Translate.t("board.field.strandpromenaden.description"), "5").setBackgroundColor(Color.blue),
         };
     }
 
