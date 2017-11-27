@@ -11,8 +11,9 @@ public class Game {
 
     private Board board;
     private GUI gui;
-    private Player players[];
+    public Player players[];
     private int startamount;
+    public int playerIndex = 0;
     private Game()
     {
         this.board = new Board();
@@ -22,6 +23,8 @@ public class Game {
 
     public void play()
     {
+        Player currentPlayer;
+
         int numberOfPlayers = this.gui.getUserInteger(Translate.t("welcome1.getNumberOfPlayer"),2,4);
 
         Player[] players = new Player[numberOfPlayers];
@@ -32,11 +35,13 @@ public class Game {
         }
 
         do {
+            currentPlayer = getNextPlayer();
             // Add Game Logic Here
 
-            
+            currentPlayer.addBalance(20);
+
         }
-        while (players[1].bankrupt());
+        while (!currentPlayer.bankrupt());
     }
 
     private int smartStash(int numberOfPlayers) {
@@ -51,7 +56,14 @@ public class Game {
         }
         return startamount=20;
     }
+    private Player getNextPlayer()
+    {
+        if (this.playerIndex >= this.players.length) {
+            this.playerIndex = 0;
+        }
 
+        return this.players[this.playerIndex++];
+    }
 
     public static void main(String[] args)
     {
