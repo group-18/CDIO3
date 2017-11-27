@@ -26,10 +26,8 @@ public class Game {
 
         Player[] players = new Player[numberOfPlayers];
         for (int i=0; i<players.length;i++){
-<<<<<<< Updated upstream
             String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
             players[i] = new Player(name, startamount);
->>>>>>> Stashed changes
             this.gui.addPlayer(players[i].getGuiPlayer());
         }
 
