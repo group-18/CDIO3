@@ -31,7 +31,12 @@ public class Game {
             this.gui.addPlayer(players[i].getGuiPlayer());
         }
 
-        
+        do {
+            // Add Game Logic Here
+
+            
+        }
+        while (players[1].bankrupt());
     }
 
     private int smartStash(int numberOfPlayers) {
