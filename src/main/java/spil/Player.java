@@ -11,7 +11,6 @@ public class Player {
 
     private String name;
     private Stash stash;
-    private boolean bankrupt;
 
     /**
      * Constructs a Player with a name and a start balance of '0'
@@ -33,7 +32,6 @@ public class Player {
 
         this.stash = new Stash(startBalance);
         this.guiPlayer = new GUI_Player(this.name, this.stash.getAmount());
-        this.bankrupt=false;
     }
 
     /**
@@ -73,12 +71,4 @@ public class Player {
         return this.guiPlayer;
     }
 
-    public boolean bankrupt(){
-        if (this.getBalance()<=0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 }

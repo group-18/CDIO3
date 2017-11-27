@@ -11,7 +11,7 @@ public class Game {
 
     private Board board;
     private GUI gui;
-    private Player players[];
+    private Player[] players;
     private int startamount;
     private boolean numberofplayersmet = false;
     private int playerIndex = 0;
@@ -25,14 +25,14 @@ public class Game {
     public void play() {
         Player currentPlayer;
         criteriaMet();
+        boolean winnerFound = false;
 
         do {
             currentPlayer = getNextPlayer();
             // Add Game Logic Here
-            currentPlayer.addBalance(2);
             
         }
-        while (players[1].bankrupt());
+        while (!winnerFound);
     }
 
     private void criteriaMet() {
@@ -40,11 +40,11 @@ public class Game {
             int numberOfPlayers = this.gui.getUserInteger(Translate.t("welcome1.getNumberOfPlayer"));
 
             if (numberOfPlayers >= 2 && numberOfPlayers <= 4) {
-                Player[] players = new Player[numberOfPlayers];
+                this.players = new Player[numberOfPlayers];
                 for (int i = 0; i < players.length; i++) {
                     String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
-                    players[i] = new Player(name, smartStash(numberOfPlayers));
-                    this.gui.addPlayer(players[i].getGuiPlayer());
+                    this.players[i] = new Player(name, smartStash(numberOfPlayers));
+                    this.gui.addPlayer(this.players[i].getGuiPlayer());
                     numberofplayersmet=true;
                 }
             }
