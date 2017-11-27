@@ -12,8 +12,7 @@ public class Game {
     private Board board;
     private GUI gui;
     private Player players[];
-    public int startamount=30;
-
+    private int startamount;
     private Game()
     {
         this.board = new Board();
@@ -27,13 +26,26 @@ public class Game {
         Player[] players = new Player[numberOfPlayers];
         for (int i=0; i<players.length;i++){
             String name = this.gui.getUserString("<PLACEHOLDER> name");
-            players[i] = new Player(name, startamount);
+            players[i] = new Player(name, smartStash(numberOfPlayers));
             this.gui.addPlayer(players[i].getGuiPlayer());
         }
 
+        smartStash(numberOfPlayers);
 
 
+    }
 
+    private int smartStash(int numberOfPlayers) {
+        if (numberOfPlayers==2){
+            return startamount=20;
+        }
+        if (numberOfPlayers==3){
+            return startamount=18;
+        }
+        if (numberOfPlayers==4) {
+            return startamount=16;
+        }
+        return startamount=20;
     }
 
 
