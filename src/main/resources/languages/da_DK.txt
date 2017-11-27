@@ -1,5 +1,6 @@
 welcome1.getNumberOfPlayer:Indtast antal spillere, mindst 2 og maksimum 4:
 welcome2.getNamePlayer:Indtast navn på spillere:
+welcome3.getNumberOfPlayerErr:Ikke tilladt! Indtast antal spillere, mindst 2 og maksimum 4:
 
 board.field.burgerbaren.description:Burgerbaren
 board.field.pizzeriaet.description:Pizzeriaet
