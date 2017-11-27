@@ -15,10 +15,12 @@ public class Game {
     private int startamount;
     private boolean numberofplayersmet = false;
     private int playerIndex = 0;
+    private Die die;
     private Game()
     {
         this.board = new Board();
         this.gui = new GUI(this.board.getGuiFields());
+        this.die = new Die();
     }
 
 
@@ -30,7 +32,7 @@ public class Game {
         do {
             currentPlayer = getNextPlayer();
             // Add Game Logic Here
-            
+            playRound(currentPlayer);
         }
         while (!winnerFound);
     }
@@ -78,6 +80,13 @@ public class Game {
         return this.players[this.playerIndex++];
     }
 
+    public void playRound(Player currentPlayer){
+        this.gui.getUserButtonPressed("<PLACEHOLDER> Kast med terning", "Kast");
+        this.die.roll();
+        int sum = this.die.getFaceValue();
+        gui.setDie(this.die.getFaceValue());
+
+    }
 
     public static void main(String[] args)
     {
