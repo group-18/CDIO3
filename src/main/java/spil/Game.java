@@ -13,6 +13,7 @@ public class Game {
     private GUI gui;
     private Player players[];
     private int startamount;
+    private boolean numberofplayersmet = false;
     private Game()
     {
         this.board = new Board();
@@ -20,48 +21,36 @@ public class Game {
     }
 
 
-    public void play()
-    {
-        //Original metode
-        /*
-        int numberOfPlayers = this.gui.getUserInteger(Translate.t("welcome1.getNumberOfPlayer"),2,4);
+    public void play() {
 
-        Player[] players = new Player[numberOfPlayers];
-        for (int i=0; i<players.length;i++){
-            String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
-            players[i] = new Player(name, smartStash(numberOfPlayers));
-            this.gui.addPlayer(players[i].getGuiPlayer());
-        }*/
+        criteriaMet();
 
-        //NEW STUFF - Test Ali
-        int numberOfPlayers = this.gui.getUserInteger(Translate.t("welcome1.getNumberOfPlayer"));
-
-        if (numberOfPlayers >= 2 && numberOfPlayers <= 4) {
-            Player[] players = new Player[numberOfPlayers];
-            for (int i=0; i<players.length;i++){
-                String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
-                players[i] = new Player(name, smartStash(numberOfPlayers));
-                this.gui.addPlayer(players[i].getGuiPlayer());
-            }
-        } else {
-            numberOfPlayers = this.gui.getUserInteger(Translate.t("welcome3.getNumberOfPlayerErr"));
-            //Spørg om antal spiller igen
-            if (numberOfPlayers >= 2 && numberOfPlayers <= 4) {
-                Player[] players = new Player[numberOfPlayers];
-                for (int i=0; i<players.length;i++){
-                    String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
-                    players[i] = new Player(name, smartStash(numberOfPlayers));
-                    this.gui.addPlayer(players[i].getGuiPlayer());
-                }
-            }
-        }
-        //NEW STUFF - Test Ali
-
-       do {
+        do {
             // Add Game Logic Here
             
         }
         while (players[1].bankrupt());
+    }
+
+    private void criteriaMet() {
+        do {
+            int numberOfPlayers = this.gui.getUserInteger(Translate.t("welcome1.getNumberOfPlayer"));
+
+            if (numberOfPlayers >= 2 && numberOfPlayers <= 4) {
+                Player[] players = new Player[numberOfPlayers];
+                for (int i = 0; i < players.length; i++) {
+                    String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
+                    players[i] = new Player(name, smartStash(numberOfPlayers));
+                    this.gui.addPlayer(players[i].getGuiPlayer());
+                    numberofplayersmet=true;
+                }
+            }
+
+            else {
+                numberofplayersmet=false;
+            }
+        }
+        while(!numberofplayersmet);
     }
 
     private int smartStash(int numberOfPlayers) {
