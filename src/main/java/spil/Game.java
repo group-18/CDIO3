@@ -11,7 +11,8 @@ public class Game {
 
     private Board board;
     private GUI gui;
-
+    private Player players[];
+    public int startamount=30;
 
     private Game()
     {
@@ -23,8 +24,13 @@ public class Game {
     public void play()
     {
         int numberOfPlayers = this.gui.getUserInteger("<PLACEHOLDER> min. 2, max 4",2,4);
-        ArrayList<Player> player = new ArrayList<>();
-        
+        Player[] players = new Player[numberOfPlayers];
+        for (int i=0; i<players.length;i++){
+            String name = this.gui.getUserString("<PLACEHOLDER> name");
+            players[i] = new Player(name, startamount);
+            this.gui.addPlayer(players[i].getGuiPlayer());
+        }
+
 
 
 
