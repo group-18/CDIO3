@@ -17,7 +17,7 @@ public class StartField extends Field {
                 Translate.t("board.field.start.title"),
                 Translate.t("board.field.start.description"),
                 Translate.t("board.field.start.subDescription"),
-                Color.WHITE,
+                Color.GREEN,
                 Color.BLACK
         );
     }
