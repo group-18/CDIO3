@@ -1,6 +1,7 @@
 package spil.Board;
 
 import gui_fields.GUI_Field;
+import spil.Player;
 import spil.Translate;
 
 import java.awt.*;
@@ -104,6 +105,30 @@ public class Board {
                 break;
             }
         }
+    }
+
+
+    public Field getPlayerField(Player player)
+    {
+        return this.playerFieldMap.get(player);
+    }
+
+
+    public boolean isFieldBefore(Field newField, Field oldField)
+    {
+        if (newField == oldField) {
+            return false;
+        }
+
+        for (int i = 0; i < this.fields.length; i++) {
+            if (this.fields[i] == newField) {
+                return true;
+            } else if (this.fields[i] == oldField) {
+                return false;
+            }
+        }
+
+        return false;
     }
 
 

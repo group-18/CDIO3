@@ -2,6 +2,7 @@ package spil;
 
 import gui_main.GUI;
 import spil.Board.Board;
+import spil.Board.Field;
 
 
 public class Game {
@@ -84,7 +85,22 @@ public class Game {
         int faceValue = this.die.getFaceValue();
         this.gui.setDie(faceValue);
 
+        Field oldField = this.board.getPlayerField(currentPlayer);
+
         this.board.movePlayer(currentPlayer, faceValue);
+
+        if (this.hasPlayerPassedStart(currentPlayer, oldField)) {
+            // Player has passed start.
+            currentPlayer.addBalance(2);
+        }
+    }
+
+
+    private boolean hasPlayerPassedStart(Player player, Field oldField)
+    {
+        Field newField = this.board.getPlayerField(player);
+
+        return this.board.isFieldBefore(newField, oldField);
     }
 
 
