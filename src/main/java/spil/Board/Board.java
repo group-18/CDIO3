@@ -4,6 +4,7 @@ import gui_fields.GUI_Field;
 import spil.Translate;
 
 import java.awt.*;
+import java.util.HashMap;
 
 
 public class Board {
@@ -12,6 +13,8 @@ public class Board {
      * Fields in this Board
      */
     private Field[] fields;
+
+    private HashMap<Player, Field> playerFieldMap = new HashMap<>();
 
 
     /**
@@ -66,6 +69,41 @@ public class Board {
         }
 
         return fields;
+    }
+
+
+    /**
+     * Add a {@link Player} to a map between Player and Field
+     *
+     * @param player The Player to link
+     */
+    public void addPlayer(Player player)
+    {
+        Field startField = this.fields[0];
+        this.playerFieldMap.put(player, startField);
+
+        startField.setCar(player);
+    }
+
+
+    public void movePlayer(Player player, int fieldToMove)
+    {
+        Field currentField = this.playerFieldMap.get(player);
+
+        for (int i = 0; i < this.fields.length; i++) {
+            if (currentField == this.fields[i]) {
+                int nextFieldPos = i + fieldToMove;
+                nextFieldPos = nextFieldPos % this.fields.length;
+
+                Field nextField = this.fields[nextFieldPos];
+                this.playerFieldMap.replace(player, nextField);
+
+                currentField.removeCar(player);
+                nextField.setCar(player);
+
+                break;
+            }
+        }
     }
 
 

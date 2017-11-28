@@ -50,6 +50,7 @@ public class Game {
             this.players[i] = new Player(name, this.getStartAmount(numberOfPlayers));
 
             this.gui.addPlayer(this.players[i].getGuiPlayer());
+            this.board.addPlayer(this.players[i]);
         }
     }
 
@@ -79,9 +80,11 @@ public class Game {
     {
         this.gui.getUserButtonPressed(Translate.t("kast.rollDie"), "Kast");
         this.die.roll();
-        int sum = this.die.getFaceValue();
-        gui.setDie(this.die.getFaceValue());
 
+        int faceValue = this.die.getFaceValue();
+        this.gui.setDie(faceValue);
+
+        this.board.movePlayer(currentPlayer, faceValue);
     }
 
 
