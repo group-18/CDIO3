@@ -1,6 +1,8 @@
 package spil.Board;
 
 import gui_fields.GUI_Field;
+import spil.Player;
+
 import java.awt.Color;
 
 
@@ -172,6 +174,18 @@ public abstract class Field {
         this.guiField.setForeGroundColor(foregroundColor);
 
         return this;
+    }
+
+
+    public void setCar(Player player)
+    {
+        this.guiField.setCar(player.getGuiPlayer(), true);
+    }
+
+
+    public void removeCar(Player player)
+    {
+        this.guiField.setCar(player.getGuiPlayer(), false);
     }
 
 

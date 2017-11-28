@@ -2,6 +2,7 @@ package spil;
 
 import gui_main.GUI;
 import spil.Board.Board;
+import spil.Board.Field;
 
 
 public class Game {
@@ -50,6 +51,7 @@ public class Game {
             this.players[i] = new Player(name, this.getStartAmount(numberOfPlayers));
 
             this.gui.addPlayer(this.players[i].getGuiPlayer());
+            this.board.addPlayer(this.players[i]);
         }
     }
 
@@ -79,9 +81,26 @@ public class Game {
     {
         this.gui.getUserButtonPressed(Translate.t("kast.rollDie"), "Kast");
         this.die.roll();
-        int sum = this.die.getFaceValue();
-        gui.setDie(this.die.getFaceValue());
 
+        int faceValue = this.die.getFaceValue();
+        this.gui.setDie(faceValue);
+
+        Field oldField = this.board.getPlayerField(currentPlayer);
+
+        this.board.movePlayer(currentPlayer, faceValue);
+
+        if (this.hasPlayerPassedStart(currentPlayer, oldField)) {
+            // Player has passed start.
+            currentPlayer.addBalance(2);
+        }
+    }
+
+
+    private boolean hasPlayerPassedStart(Player player, Field oldField)
+    {
+        Field newField = this.board.getPlayerField(player);
+
+        return this.board.isFieldBefore(newField, oldField);
     }
 
 
