@@ -1,18 +1,42 @@
-board.field.burgerbaren.description:'Burgerbaren'
-board.field.pizzeriaet.description:'Pizzeriaet'
-board.field.slikbutikken.description:'Slikbutikken'
-board.field.iskiosken.description:'Iskiosken'
-board.field.museet.description:'Museet'
-board.field.biblioteket.description:'Biblioteket'
-board.field.skaterparken.description:'Skaterparken'
-board.field.swimmingpoolen.description:'Swimmingpoolen'
-board.field.gratisparkering.description:'Du landede på feltet gratis parkering'
-board.field.spillehallen.description:'Spillehallen'
-board.field.biografen.description:'Biografen'
-board.field.legetøjsbutikken.description:'Legetøjsbutikken'
-board.field.dyrehandlen.description:'Dyrehandlen'
-board.field.bowlinghallen.description:'Bowlinghallen'
-board.field.zoo.description:'Zoo'
-board.field.chance.description:'Chance'
-board.field.vandlandet.description:'Vandlandet'
-board.field.strandpromenaden.description:'Strandpromenaden'
+welcome1.getNumberOfPlayer:Indtast antal spillere, mindst 2 og maksimum 4:
+welcome2.getNamePlayer:Indtast navn på spillere:
+
+kast.rollDie:Kast med terning
+
+board.field.burgerbaren.description:Burgerbaren
+board.field.pizzeriaet.description:Pizzeriaet
+board.field.slikbutikken.description:Slikbutikken
+board.field.iskiosken.description:Iskiosken
+board.field.museet.description:Museet
+board.field.biblioteket.description:Biblioteket
+board.field.skaterparken.description:Skaterparken
+board.field.swimmingpoolen.description:Swimmingpoolen
+board.field.gratisparkering.description:Gratis parkering
+board.field.spillehallen.description:Spillehallen
+board.field.biografen.description:Biografen
+board.field.legetøjsbutikken.description:Legetøjsbutikken
+board.field.dyrehandlen.description:Dyrehandlen
+board.field.bowlinghallen.description:Bowlinghallen
+board.field.zoo.description:Zoo
+board.field.chance.description:Chance
+board.field.vandlandet.description:Vandlandet
+board.field.strandpromenaden.description:Strandpromenaden
+
+board.field.burgerbaren.subDescription:'Burgerbaren er et sted hvor du køber burger'
+board.field.pizzeriaet.subDescription:'Pizzeriaet er et sted hvor du køber pizza'
+board.field.slikbutikken.subDescription:'Slikbutikken er et sted hvor du køber slik'
+board.field.iskiosken.subDescription:'Iskiosken er et sted hvor du køber is'
+board.field.museet.subDescription:'Museet er et flot sted'
+board.field.biblioteket.subDescription:'Biblioteket er et sted hvor du låner bøger'
+board.field.skaterparken.subDescription:'Skaterparken er et sted hvor du skater'
+board.field.swimmingpoolen.subDescription:'Swimmingpoolen er et sted hvor du svømmer'
+board.field.gratisparkering.subDescription:'Du landede på feltet gratis parkering'
+board.field.spillehallen.subDescription:'Spillehallen er et sted hvor du spiller'
+board.field.biografen.subDescription:'Biografen er et sted hvor du ser film'
+board.field.legetøjsbutikken.subDescription:'Legetøjsbutikken er et sted hvor du køber legetøj'
+board.field.dyrehandlen.subDescription:'Dyrehandlen er et sted hvor du kæledyr'
+board.field.bowlinghallen.subDescription:'Bowlinghallen er et sted hvor du bowler'
+board.field.zoo.subDescription:'Zoo er et sted hvor du ser på dyr'
+board.field.chance.subDescription:'Træk et chance kort'
+board.field.vandlandet.subDescription:'Vandlandet er et flot sted'
+board.field.strandpromenaden.subDescription:'Strandpromenaden er et flot sted'
