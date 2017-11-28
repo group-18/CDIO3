@@ -1,21 +1,20 @@
 package spil;
 
-import gui_fields.GUI_Player;
 import gui_main.GUI;
 import spil.Board.Board;
-
-import java.util.ArrayList;
 
 
 public class Game {
 
     private Board board;
     private GUI gui;
-    private Player[] players;
-    private int startamount;
-    private boolean numberofplayersmet = false;
-    private int playerIndex = 0;
+
     private Die die;
+
+    private Player[] players;
+    private int playerIndex = 0;
+
+
     private Game()
     {
         this.board = new Board();
@@ -24,52 +23,47 @@ public class Game {
     }
 
 
-    public void play() {
+    public void play()
+    {
+        int numberOfPlayers = this.gui.getUserInteger(Translate.t("welcome1.getNumberOfPlayer"), 2, 4);
+
+        this.createPlayers(numberOfPlayers);
+
         Player currentPlayer;
-        criteriaMet();
         boolean winnerFound = false;
 
         do {
             currentPlayer = getNextPlayer();
             // Add Game Logic Here
             playRound(currentPlayer);
-        }
-        while (!winnerFound);
+        } while (! winnerFound);
     }
 
-    private void criteriaMet() {
-        do {
-            int numberOfPlayers = this.gui.getUserInteger(Translate.t("welcome1.getNumberOfPlayer"));
 
-            if (numberOfPlayers >= 2 && numberOfPlayers <= 4) {
-                this.players = new Player[numberOfPlayers];
-                for (int i = 0; i < players.length; i++) {
-                    String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
-                    this.players[i] = new Player(name, smartStash(numberOfPlayers));
-                    this.gui.addPlayer(this.players[i].getGuiPlayer());
-                    numberofplayersmet=true;
-                }
-            }
+    private void createPlayers(int numberOfPlayers)
+    {
+        this.players = new Player[numberOfPlayers];
 
-            else {
-                numberofplayersmet=false;
-            }
+        for (int i = 0; i < this.players.length; i++) {
+            String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
+
+            this.players[i] = new Player(name, this.getStartAmount(numberOfPlayers));
+
+            this.gui.addPlayer(this.players[i].getGuiPlayer());
         }
-        while(!numberofplayersmet);
     }
 
-    private int smartStash(int numberOfPlayers) {
-        if (numberOfPlayers==2){
-            return startamount=20;
+
+    private int getStartAmount(int numberOfPlayers)
+    {
+        switch (numberOfPlayers) {
+            case 2: return 20;
+            case 3: return 18;
+            case 4: return 16;
+            default: return 20;
         }
-        if (numberOfPlayers==3){
-            return startamount=18;
-        }
-        if (numberOfPlayers==4) {
-            return startamount=16;
-        }
-        return startamount=20;
     }
+
 
     private Player getNextPlayer()
     {
@@ -80,13 +74,16 @@ public class Game {
         return this.players[this.playerIndex++];
     }
 
-    public void playRound(Player currentPlayer){
+
+    public void playRound(Player currentPlayer)
+    {
         this.gui.getUserButtonPressed(Translate.t("kast.rollDie"), "Kast");
         this.die.roll();
         int sum = this.die.getFaceValue();
         gui.setDie(this.die.getFaceValue());
 
     }
+
 
     public static void main(String[] args)
     {
