@@ -86,4 +86,8 @@ public class Player {
         }
     }
 
+    public String getType(){
+        return this.type;
+    }
+
 }
