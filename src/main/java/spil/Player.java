@@ -1,5 +1,6 @@
 package spil;
 
+import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 
 /**
@@ -8,9 +9,9 @@ import gui_fields.GUI_Player;
 public class Player {
 
     private GUI_Player guiPlayer;
-
     private String name;
     private Stash stash;
+    private String type;
 
     /**
      * Constructs a Player with a name and a start balance of '0'
@@ -32,6 +33,7 @@ public class Player {
 
         this.stash = new Stash(startBalance);
         this.guiPlayer = new GUI_Player(this.name, this.stash.getAmount());
+        this.type="car";
     }
 
     /**
@@ -69,6 +71,19 @@ public class Player {
     public GUI_Player getGuiPlayer()
     {
         return this.guiPlayer;
+    }
+
+    /**
+     *  Changes the default type of player
+     * @param type The type of player to be
+     */
+    public void setType(String type){
+        switch (type){
+            case "cat" : this.type = "cat";
+            case "dog" : this.type = "dog";
+            case "boat" : this.type = "boat";
+            case "car" : this.type = "car";
+        }
     }
 
 }
