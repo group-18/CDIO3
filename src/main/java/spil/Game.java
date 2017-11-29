@@ -86,6 +86,7 @@ public class Game {
         return this.players[this.playerIndex++];
     }
 
+
     private void youngestPlayerStarts(int countplayers){
 
         String playerNumberString = "";
@@ -101,9 +102,8 @@ public class Game {
             case 4:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1", "2", "3", "4");
                 break;
         }
-                int a = Integer.parseInt(playerNumberString);
 
-        this.playerIndex = a;
+        this.playerIndex = (Integer.parseInt(playerNumberString)-1);
     }
 
 
