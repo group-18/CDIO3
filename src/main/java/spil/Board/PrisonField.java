@@ -68,7 +68,7 @@ public class PrisonField extends Field {
     }
 
     @Override
-    public void runAction(Player player, Field field) {
+    public void runAction(Player player) {
 
     }
 }
