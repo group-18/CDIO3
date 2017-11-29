@@ -162,6 +162,9 @@ public class Game {
         this.gui.showMessage(this.currentPlayer.getName() + Translate.t("kast.rollDie2") + faceValue);
 
         this.movePlayer(this.currentPlayer, faceValue);
+
+        Field field = this.board.getPlayerField(currentPlayer);
+        field.runAction(currentPlayer, field);
     }
 
 
