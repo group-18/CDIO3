@@ -26,7 +26,7 @@ public class Game {
 
     public void play()
     {
-        int numberOfPlayers = this.gui.getUserInteger(Translate.t("welcome1.getNumberOfPlayer"), 2, 4);
+        int numberOfPlayers = playerNoToInt();
 
         this.createPlayers(numberOfPlayers);
 
@@ -38,6 +38,16 @@ public class Game {
             // Add Game Logic Here
             playRound(currentPlayer);
         } while (! winnerFound);
+    }
+
+
+    private int playerNoToInt(){
+
+        String playerNumberString = this.gui.getUserSelection("Hvor mange personer er med i spillet?", "2", "3", "4");
+
+        int playerNumberInt = Integer.parseInt(playerNumberString);
+
+        return playerNumberInt;
     }
 
 
