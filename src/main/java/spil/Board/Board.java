@@ -86,6 +86,11 @@ public class Board {
         startField.setCar(player);
     }
 
+    /**
+     * Moves the players from the set location to the next location
+     * @param player the current player
+     * @param fieldToMove the integer to move from the set location.
+     */
 
     public void movePlayer(Player player, int fieldToMove)
     {

@@ -86,6 +86,11 @@ public class Player {
         }
     }
 
+    /**
+     * Retrieve this players type
+     * @return the type of player
+     */
+
     public String getType(){
         return this.type;
     }
