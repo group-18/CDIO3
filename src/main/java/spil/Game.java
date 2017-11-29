@@ -26,9 +26,11 @@ public class Game {
 
     public void play()
     {
-        int numberOfPlayers = playerNoToInt();
+        int numberOfPlayers = playerNumberToInt();
 
         this.createPlayers(numberOfPlayers);
+
+        youngestPlayerStarts(numberOfPlayers);
 
         Player currentPlayer;
         boolean winnerFound = false;
@@ -40,8 +42,7 @@ public class Game {
         } while (! winnerFound);
     }
 
-
-    private int playerNoToInt(){
+    private int playerNumberToInt(){
 
         String playerNumberString = this.gui.getUserSelection(Translate.t("welcome1.getNumberOfPlayer"), "2", "3", "4");
 
@@ -49,7 +50,6 @@ public class Game {
 
         return playerNumberInt;
     }
-
 
     private void createPlayers(int numberOfPlayers)
     {
@@ -84,6 +84,26 @@ public class Game {
         }
 
         return this.players[this.playerIndex++];
+    }
+
+    private void youngestPlayerStarts(int countplayers){
+
+        String playerNumberString = "";
+
+        switch (countplayers) {
+
+            case 2:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1", "2");
+                break;
+
+            case 3:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1", "2", "3");
+                break;
+
+            case 4:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1", "2", "3", "4");
+                break;
+        }
+                int a = Integer.parseInt(playerNumberString);
+
+        this.playerIndex = a;
     }
 
 
