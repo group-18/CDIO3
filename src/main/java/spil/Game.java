@@ -84,7 +84,8 @@ public class Game {
 
         int faceValue = this.die.getFaceValue();
         this.gui.setDie(faceValue);
-
+        this.gui.showMessage("Du kastede: " + faceValue);
+        
         Field oldField = this.board.getPlayerField(currentPlayer);
 
         this.board.movePlayer(currentPlayer, faceValue);
