@@ -79,10 +79,10 @@ public class Player {
      */
     public void setType(String type){
         switch (type){
-            case "cat" : this.type = "cat";
-            case "dog" : this.type = "dog";
-            case "boat" : this.type = "boat";
-            case "car" : this.type = "car";
+            case "cat" : this.type = "cat"; break;
+            case "dog" : this.type = "dog"; break;
+            case "boat" : this.type = "boat"; break;
+            case "car" : this.type = "car"; break;
         }
     }
 
