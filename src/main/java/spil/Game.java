@@ -49,7 +49,7 @@ public class Game {
             String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
 
             this.players[i] = new Player(name, this.getStartAmount(numberOfPlayers));
-            this.players[i].setType(this.gui.getUserSelection("<PLACEHOLDER> type of player", "cat", "dog", "boat", "dog"));
+            this.players[i].setType(this.gui.getUserSelection(Translate.t("type.whatplayer"), "cat", "dog", "boat", "dog"));
             this.gui.addPlayer(this.players[i].getGuiPlayer());
             this.board.addPlayer(this.players[i]);
         }

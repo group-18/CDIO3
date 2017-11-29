@@ -3,6 +3,8 @@ welcome2.getNamePlayer:Indtast navn på spillere:
 
 kast.rollDie:Kast med terning
 
+type.whatplayer: Hvilken spiller er du?
+
 board.field.burgerbaren.description:Burgerbaren
 board.field.pizzeriaet.description:Pizzeriaet
 board.field.slikbutikken.description:Slikbutikken
