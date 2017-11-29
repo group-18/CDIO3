@@ -93,7 +93,7 @@ public class Game {
         if (this.hasPlayerPassedStart(currentPlayer, oldField)) {
             // Player has passed start.
             currentPlayer.addBalance(2);
-            this.gui.showMessage(currentPlayer.getName() + " har passeret start og modtager derfor 2M");
+            this.gui.showMessage(currentPlayer.getName() + Translate.t("getmoney.player"));
         }
     }
 

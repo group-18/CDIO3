@@ -35,4 +35,13 @@ public class PlayerTest {
         Assert.assertEquals(100, this.player.getBalance());
     }
 
+    @Test
+    public void getType() throws Exception{
+        Assert.assertEquals("car",this.player.getType());
+
+        this.player.setType("boat");
+
+        Assert.assertEquals("boat",this.player.getType());
+    }
+
 }

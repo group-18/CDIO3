@@ -5,6 +5,8 @@ kast.rollDie:Kast med terning
 
 type.whatplayer: Hvilken spiller er du?
 
+getmoney.player: har passeret start og modtager derfor 2M
+
 board.field.burgerbaren.description:Burgerbaren
 board.field.pizzeriaet.description:Pizzeriaet
 board.field.slikbutikken.description:Slikbutikken
