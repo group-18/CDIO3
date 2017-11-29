@@ -1,6 +1,7 @@
 package spil.Board;
 
 import gui_fields.GUI_Street;
+import spil.Player;
 import spil.Translate;
 
 import java.awt.Color;
@@ -42,4 +43,8 @@ public class ParkingField extends Field {
         return (GUI_Street) this.guiField;
     }
 
+    @Override
+    public void runAction(Player player, Field field) {
+
+    }
 }

@@ -1,6 +1,7 @@
 package spil.Board;
 
 import gui_fields.GUI_Jail;
+import spil.Player;
 import spil.Translate;
 import java.awt.Color;
 
@@ -66,4 +67,8 @@ public class PrisonField extends Field {
         return this.isVisit;
     }
 
+    @Override
+    public void runAction(Player player, Field field) {
+
+    }
 }
