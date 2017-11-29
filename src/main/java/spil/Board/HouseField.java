@@ -120,17 +120,18 @@ public class HouseField extends Field {
 
 
 
-    public void runAction(Player player, Field field) {
-        HouseField houseField = HouseField.class.cast(field);
-        if (houseField.isOwned()){
+    public void runAction(Player player) {
+        if (this.isOwned()){
                 if (!isOwnedByPlayer(player)){
-                    player.addBalance(-houseField.rentToInt(getRent()));
-                    houseField.getOwner().addBalance(houseField.rentToInt(getRent()));
+                    player.addBalance(-this.rentToInt(getRent()));
+                    this.getOwner().addBalance(this.rentToInt(getRent()));
                 }
             }
             else {
-                player.addBalance(-houseField.rentToInt(getRent()));
-                houseField.setOwner(player);
+                player.addBalance(-this.rentToInt(getRent()));
+                this.setOwner(player);
+                this.setSubDescription(player.getName());
+                this.getGuiField().setOwnerName(player.getName());
             }
         }
     }
