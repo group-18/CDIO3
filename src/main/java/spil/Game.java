@@ -93,13 +93,13 @@ public class Game {
 
         switch (countplayers) {
 
-            case 2:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1", "2");
+            case 2:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players[0].getName(), "2. " + this.players[1].getName());
                 break;
 
-            case 3:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1", "2", "3");
+            case 3:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players[0].getName(), "2. " + this.players[1].getName(), "3. " + this.players[2].getName());
                 break;
 
-            case 4:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1", "2", "3", "4");
+            case 4:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players[0].getName(), "2. " + this.players[1].getName(), "3. " + this.players[2].getName(), "4. " + this.players[3].getName());
                 break;
         }
 
