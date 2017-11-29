@@ -120,7 +120,7 @@ public class Game {
 
         int faceValue = this.die.getFaceValue();
         this.gui.setDie(faceValue);
-        this.gui.showMessage(currentPlayer.getName() + " kastede " + faceValue);
+        this.gui.showMessage(currentPlayer.getName() + Translate.t("kast.rollDie2") + faceValue);
 
         Field oldField = this.board.getPlayerField(currentPlayer);
 
@@ -129,7 +129,7 @@ public class Game {
         if (this.hasPlayerPassedStart(currentPlayer, oldField)) {
             // Player has passed start.
             currentPlayer.addBalance(2);
-            this.gui.showMessage(currentPlayer.getName() + Translate.t("getmoney.player"));
+            this.gui.showMessage(currentPlayer.getName() + Translate.t("kast.rollDie3"));
         }
     }
 

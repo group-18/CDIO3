@@ -3,6 +3,8 @@ welcome2.getNamePlayer:Indtast navn på spillere:
 welcome3.getYoungestPlayer:Vælg den yngste spiller:
 
 kast.rollDie:Kast med terning
+kast.rollDie2: kastede
+kast.rollDie3: har passeret start og modtager derfor 2M
 
 type.whatplayer: Hvilken spiller er du?
 
