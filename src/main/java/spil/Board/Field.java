@@ -205,5 +205,5 @@ public abstract class Field {
      */
     abstract public GUI_Field getGuiField();
 
-    public abstract void runAction(Player player, Field field);
+    public abstract void runAction(Player player);
 }
