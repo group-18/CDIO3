@@ -43,7 +43,7 @@ public class Game {
 
     private int playerNoToInt(){
 
-        String playerNumberString = this.gui.getUserSelection("Hvor mange personer er med i spillet?", "2", "3", "4");
+        String playerNumberString = this.gui.getUserSelection(Translate.t("welcome1.getNumberOfPlayer"), "2", "3", "4");
 
         int playerNumberInt = Integer.parseInt(playerNumberString);
 
