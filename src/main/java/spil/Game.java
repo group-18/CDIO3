@@ -4,6 +4,8 @@ import gui_main.GUI;
 import spil.Board.Board;
 import spil.Board.Field;
 
+import java.util.Scanner;
+
 
 public class Game {
 
@@ -26,7 +28,7 @@ public class Game {
 
     public void play()
     {
-        int numberOfPlayers = playerNumberToInt();
+        int numberOfPlayers = choosePlayerAmountStringToInt();
 
         this.createPlayers(numberOfPlayers);
 
@@ -42,11 +44,17 @@ public class Game {
         } while (! winnerFound);
     }
 
-    private int playerNumberToInt(){
 
-        String playerNumberString = this.gui.getUserSelection(Translate.t("welcome1.getNumberOfPlayer"), "2", "3", "4");
 
-        int playerNumberInt = Integer.parseInt(playerNumberString);
+    private int choosePlayerAmountStringToInt(){
+
+        String playerNumberString = this.gui.getUserSelection(Translate.t("welcome1.getNumberOfPlayer"),"2", "3", "4");
+
+       /* int playerNumberInt = Integer.parseInt(playerNumberString);*/
+
+        int playerNumberInt = Integer.valueOf(playerNumberString);
+
+        System.out.println(playerNumberInt);
 
         return playerNumberInt;
     }
