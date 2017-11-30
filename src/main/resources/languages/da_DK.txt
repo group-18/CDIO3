@@ -111,4 +111,5 @@ chance.description.homework:Du har lavet alle dine lektier! Modtag 2M fra banken
 chance.description.skaterparken:GRATIS FELT! Ryk frem til Skaterparken for at lave det perfekte grind! Hvis ingen ejer den, får du den GRATIS! Ellers skal du betale leje til ejeren.
 
 end.game.bankrupt: er gået bankerot. Spillet slutter.
+end.game.printWinner: vinder med en balance på
 end.game.showwinner:
