@@ -90,6 +90,10 @@ public class Game {
     }
 
 
+    /**
+     * Brings a gui-dropdown menu to ask player how many are playing the game.
+     * Choose between: 2, 3 or 4 players
+     */
 
     private int choosePlayerAmountStringToInt(){
 
@@ -136,6 +140,12 @@ public class Game {
         return this.players[this.playerIndex++];
     }
 
+
+    /**
+     * Brings a gui-dropdown menu to ask player who is youngest of the players.
+     * The youngest player starts.
+     * Takes in the int numberOfPlayers, and outputs an int.
+     */
 
     private void youngestPlayerStarts(int countplayers){
 
