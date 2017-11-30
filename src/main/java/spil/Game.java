@@ -43,7 +43,9 @@ public class Game {
             this.currentPlayer = getNextPlayer();
             // Add Game Logic Here
             playRound();
-        } while (! this.winnerFound); isCurrentPlayerBankupt(); printWinner();
+        } while (! this.winnerFound);
+        isCurrentPlayerBankupt();
+        printWinner();
     }
 
 
