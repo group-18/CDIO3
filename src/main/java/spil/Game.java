@@ -16,6 +16,7 @@ public class Game {
     private Player[] players;
     private Player currentPlayer;
     private int playerIndex = 0;
+    private boolean winnerFound = false;
 
 
     private Game()
@@ -35,13 +36,11 @@ public class Game {
 
         youngestPlayerStarts(numberOfPlayers);
 
-        boolean winnerFound = false;
-
         do {
             this.currentPlayer = getNextPlayer();
             // Add Game Logic Here
             playRound();
-        } while (! winnerFound);
+        } while (! this.winnerFound);
     }
 
 
@@ -192,6 +191,21 @@ public class Game {
 
         Field field = this.board.getPlayerField(currentPlayer);
         field.runAction(this);
+        isCurrentPlayerBankupt();
+    }
+
+    /**
+     * Checks if player is bankrupt, and if true:
+     * changes winnerfound & outputs message
+     */
+
+    public void isCurrentPlayerBankupt()
+    {
+        if(currentPlayer.getBalance() <= 0)
+            {
+                this.gui.showMessage(this.currentPlayer.getName() + Translate.t("end.game.bankrupt"));
+                this.winnerFound = true;
+            }
     }
 
 
