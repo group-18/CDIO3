@@ -223,7 +223,7 @@ public class Game {
     {
         int max = 0;
         for (int i = 0; i < this.players.length; i++) {
-            if (players[i].getBalance()> max){
+            if (players[i].getBalance()>= max){
                 max = this.players[i].getBalance();
                 this.gui.showMessage(this.players[i].getName() + Translate.t("end.game.printWinner") + " " +players[i].getBalance());
             }
