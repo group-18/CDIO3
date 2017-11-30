@@ -25,15 +25,17 @@ public class PrisonField extends Field {
      */
     public PrisonField(boolean isVisit)
     {
-        super(
-                Translate.t("board.field.prison.title"),
-                Translate.t("board.field.prison.description"),
-                Translate.t("board.field.prison.subDescription"),
-                Color.BLACK,
-                Color.WHITE
-        );
+        super();
 
         this.isVisit = isVisit;
+        String fieldType = isVisit ? "visit" : "goto";
+
+        this.setName(Translate.t("board.field.prison." + fieldType + ".title"));
+        this.setDescription(Translate.t("board.field.prison." + fieldType + ".description"));
+        this.setSubDescription(Translate.t("board.field.prison." + fieldType + ".subDescription"));
+
+        this.setBackgroundColor(Color.BLACK);
+        this.setForegroundColor(Color.WHITE);
     }
 
 
@@ -70,6 +72,9 @@ public class PrisonField extends Field {
 
     @Override
     public void runAction(Game game) {
-
+        if (! this.isVisit) {
+            game.getGui().showMessage(Translate.t("board.field.prison.action"));
+            game.movePlayer(game.getCurrentPlayer(), Translate.t("board.field.prison.visit.title"));
+        }
     }
 }
