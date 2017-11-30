@@ -1,6 +1,7 @@
 package spil.Board;
 
 import gui_fields.GUI_Chance;
+import spil.Game;
 import spil.Player;
 import spil.Translate;
 
@@ -44,7 +45,7 @@ public class ChanceField extends Field {
     }
 
     @Override
-    public void runAction(Player player) {
+    public void runAction(Game game) {
 
     }
 }

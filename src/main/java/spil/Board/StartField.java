@@ -1,6 +1,7 @@
 package spil.Board;
 
 import gui_fields.GUI_Start;
+import spil.Game;
 import spil.Player;
 import spil.Translate;
 import java.awt.Color;
@@ -44,7 +45,7 @@ public class StartField extends Field {
     }
 
     @Override
-    public void runAction(Player player) {
+    public void runAction(Game game) {
 
     }
 }

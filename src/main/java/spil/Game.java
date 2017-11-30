@@ -164,7 +164,7 @@ public class Game {
         this.movePlayer(this.currentPlayer, faceValue);
 
         Field field = this.board.getPlayerField(currentPlayer);
-        field.runAction(currentPlayer);
+        field.runAction(this);
     }
 
 

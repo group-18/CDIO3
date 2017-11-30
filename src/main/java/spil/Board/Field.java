@@ -1,6 +1,7 @@
 package spil.Board;
 
 import gui_fields.GUI_Field;
+import spil.Game;
 import spil.Player;
 
 import java.awt.Color;
@@ -205,5 +206,5 @@ public abstract class Field {
      */
     abstract public GUI_Field getGuiField();
 
-    public abstract void runAction(Player player);
+    public abstract void runAction(Game game);
 }

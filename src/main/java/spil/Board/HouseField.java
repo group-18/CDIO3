@@ -1,6 +1,7 @@
 package spil.Board;
 
 import gui_fields.GUI_Street;
+import spil.Game;
 import spil.Player;
 
 import java.awt.Color;
@@ -119,8 +120,10 @@ public class HouseField extends Field {
     }
 
 
+    @Override
+    public void runAction(Game game) {
+        Player player = game.getCurrentPlayer();
 
-    public void runAction(Player player) {
         if (this.isOwned()){
                 if (!isOwnedByPlayer(player)){
                     player.addBalance(-this.rentToInt(getRent()));
