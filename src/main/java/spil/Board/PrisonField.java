@@ -75,6 +75,8 @@ public class PrisonField extends Field {
         if (! this.isVisit) {
             game.getGui().showMessage(Translate.t("board.field.prison.action"));
             game.movePlayer(game.getCurrentPlayer(), Translate.t("board.field.prison.visit.title"));
+            game.getCurrentPlayer().addBalance(-2);
+            game.getGui().showMessage(Translate.t("board.field.prison.pay"));
         }
     }
 }
