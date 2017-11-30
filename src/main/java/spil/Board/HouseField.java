@@ -133,7 +133,6 @@ public class HouseField extends Field {
             else {
                 player.addBalance(-this.rentToInt(getRent()));
                 this.setOwner(player);
-                this.setSubDescription(player.getName());
                 this.getGuiField().setOwnerName(player.getName());
 
                 this.getGuiField().setBorder(player.getGuiPlayer().getPrimaryColor());
