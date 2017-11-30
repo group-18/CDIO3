@@ -180,12 +180,12 @@ public class Game {
 
     public void playRound()
     {
-        this.gui.getUserButtonPressed(Translate.t("kast.rollDie"), "Kast");
+        this.gui.getUserButtonPressed(Translate.t("kast.rollDie") + " "+ currentPlayer.getName() + Translate.t("kast.rollDie1"), "Kast");
         this.die.roll();
 
         int faceValue = this.die.getFaceValue();
         this.gui.setDie(faceValue);
-        this.gui.showMessage(this.currentPlayer.getName() + Translate.t("kast.rollDie2") + faceValue);
+        this.gui.showMessage(this.currentPlayer.getName() + Translate.t("kast.rollDie2") + " "+faceValue);
 
         this.movePlayer(this.currentPlayer, faceValue);
 
