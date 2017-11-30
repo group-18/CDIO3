@@ -11,6 +11,7 @@ public class Game {
     private GUI gui;
 
     private Die die;
+    private ChanceDeck chanceDeck;
 
     private Player[] players;
     private Player currentPlayer;
@@ -22,6 +23,7 @@ public class Game {
         this.board = new Board();
         this.gui = new GUI(this.board.getGuiFields());
         this.die = new Die();
+        this.chanceDeck = new ChanceDeck();
     }
 
 
@@ -46,6 +48,12 @@ public class Game {
     public GUI getGui()
     {
         return this.gui;
+    }
+
+
+    public ChanceDeck getChanceDeck()
+    {
+        return this.chanceDeck;
     }
 
 
