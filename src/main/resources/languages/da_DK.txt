@@ -47,3 +47,11 @@ board.field.zoo.subDescription:'Zoo er et sted hvor du ser på dyr'
 board.field.chance.subDescription:'Træk et chance kort'
 board.field.vandlandet.subDescription:'Vandlandet er et flot sted'
 board.field.strandpromenaden.subDescription:'Strandpromenaden er et flot sted'
+
+board.field.prison.visit.title:Fængslet
+board.field.prison.visit.description:Hvis du lander her, er du bare på besøg.
+board.field.prison.visit.subDescription:På besøg
+board.field.prison.goto.title:Gå i fængsel
+board.field.prison.goto.description:Gå lige i fængsel! Du passerer ikke START. Du modtager ikke 2M. I startden af din næste tur skal du betale 1M eller bruge "Du løslades uden omkostninger"-kortet, hvis du har det. Kast derefter terningen, og ryk som normalt. Du kan godt modtage husleje mens du er i fængsel.
+board.field.prison.goto.subDescription:Gå i fængsel
+board.field.prison.action:Du skal i fængsel. Du modtager ikke penge for at passere start.

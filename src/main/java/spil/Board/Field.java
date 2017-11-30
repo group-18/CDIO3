@@ -1,6 +1,7 @@
 package spil.Board;
 
 import gui_fields.GUI_Field;
+import spil.Game;
 import spil.Player;
 
 import java.awt.Color;
@@ -31,14 +32,22 @@ public abstract class Field {
 
 
     /**
+     * Constructs a Field
+     */
+    public Field()
+    {
+        this.guiField = this.createGUIFIeld();
+    }
+
+
+    /**
      * Constructs a Field with a name
      *
      * @param name The name of this Field
      */
     public Field(String name)
     {
-        this.guiField = this.createGUIFIeld();
-
+        this();
         this.setName(name);
     }
 
@@ -205,4 +214,5 @@ public abstract class Field {
      */
     abstract public GUI_Field getGuiField();
 
+    public abstract void runAction(Game game);
 }

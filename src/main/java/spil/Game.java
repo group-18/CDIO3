@@ -3,6 +3,7 @@ package spil;
 import gui_main.GUI;
 import spil.Board.Board;
 import spil.Board.Field;
+import spil.Board.PrisonField;
 
 public class Game {
 
@@ -42,6 +43,12 @@ public class Game {
     }
 
 
+    public GUI getGui()
+    {
+        return this.gui;
+    }
+
+
     public Player getCurrentPlayer()
     {
         return this.currentPlayer;
@@ -74,9 +81,11 @@ public class Game {
         Field moveToField = this.board.getFieldByName(fieldName);
         this.board.movePlayer(player, moveToField);
 
-        if (this.hasPlayerPassedStart(player, oldField)) {
-            player.addBalance(2);
-            this.gui.showMessage(player.getName() + Translate.t("kast.rollDie3"));
+        if (! (oldField instanceof PrisonField) && !(moveToField instanceof PrisonField)) {
+            if (this.hasPlayerPassedStart(player, oldField)) {
+                player.addBalance(2);
+                this.gui.showMessage(player.getName() + Translate.t("kast.rollDie3"));
+            }
         }
     }
 
@@ -162,6 +171,9 @@ public class Game {
         this.gui.showMessage(this.currentPlayer.getName() + Translate.t("kast.rollDie2") + faceValue);
 
         this.movePlayer(this.currentPlayer, faceValue);
+
+        Field field = this.board.getPlayerField(currentPlayer);
+        field.runAction(this);
     }
 
 
