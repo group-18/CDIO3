@@ -12,6 +12,7 @@ public class Game {
     private Die die;
 
     private Player[] players;
+    private Player currentPlayer;
     private int playerIndex = 0;
 
 
@@ -31,14 +32,25 @@ public class Game {
 
         youngestPlayerStarts(numberOfPlayers);
 
-        Player currentPlayer;
         boolean winnerFound = false;
 
         do {
-            currentPlayer = getNextPlayer();
+            this.currentPlayer = getNextPlayer();
             // Add Game Logic Here
-            playRound(currentPlayer);
+            playRound();
         } while (! winnerFound);
+    }
+
+
+    public Player getCurrentPlayer()
+    {
+        return this.currentPlayer;
+    }
+
+
+    public Player[] getPlayers()
+    {
+        return this.players;
     }
 
 
@@ -140,16 +152,16 @@ public class Game {
     }
 
 
-    public void playRound(Player currentPlayer)
+    public void playRound()
     {
         this.gui.getUserButtonPressed(Translate.t("kast.rollDie"), "Kast");
         this.die.roll();
 
         int faceValue = this.die.getFaceValue();
         this.gui.setDie(faceValue);
-        this.gui.showMessage(currentPlayer.getName() + Translate.t("kast.rollDie2") + faceValue);
+        this.gui.showMessage(this.currentPlayer.getName() + Translate.t("kast.rollDie2") + faceValue);
 
-        this.movePlayer(currentPlayer, faceValue);
+        this.movePlayer(this.currentPlayer, faceValue);
     }
 
 
