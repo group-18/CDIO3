@@ -42,6 +42,33 @@ public class Game {
     }
 
 
+    public void movePlayer(Player player, int fieldsToMove)
+    {
+        Field oldField = this.board.getPlayerField(player);
+
+        this.board.movePlayer(player, fieldsToMove);
+
+        if (this.hasPlayerPassedStart(player, oldField)) {
+            player.addBalance(2);
+            this.gui.showMessage(player.getName() + Translate.t("kast.rollDie3"));
+        }
+    }
+
+
+    public void movePlayer(Player player, String fieldName)
+    {
+        Field oldField = this.board.getPlayerField(player);
+
+        Field moveToField = this.board.getFieldByName(fieldName);
+        this.board.movePlayer(player, moveToField);
+
+        if (this.hasPlayerPassedStart(player, oldField)) {
+            player.addBalance(2);
+            this.gui.showMessage(player.getName() + Translate.t("kast.rollDie3"));
+        }
+    }
+
+
 
     private int choosePlayerAmountStringToInt(){
 
@@ -122,15 +149,7 @@ public class Game {
         this.gui.setDie(faceValue);
         this.gui.showMessage(currentPlayer.getName() + Translate.t("kast.rollDie2") + faceValue);
 
-        Field oldField = this.board.getPlayerField(currentPlayer);
-
-        this.board.movePlayer(currentPlayer, faceValue);
-
-        if (this.hasPlayerPassedStart(currentPlayer, oldField)) {
-            // Player has passed start.
-            currentPlayer.addBalance(2);
-            this.gui.showMessage(currentPlayer.getName() + Translate.t("kast.rollDie3"));
-        }
+        this.movePlayer(currentPlayer, faceValue);
     }
 
 
