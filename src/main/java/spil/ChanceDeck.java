@@ -154,7 +154,7 @@ public class ChanceDeck {
         ),
         new ChanceCard(
             Translate.t("chance.description.prison"),
-            (game) -> {} // todo: determine how to handle this card
+            (game) ->game.getCurrentPlayer().addPrisonCard(1)
         ),
         new ChanceCard(
             Translate.t("chance.description.strandpromenaden"),

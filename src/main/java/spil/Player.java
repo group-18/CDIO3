@@ -11,6 +11,7 @@ public class Player {
     private String name;
     private Stash stash;
     private Type type = Type.CAT;
+    private int prisonCards;
 
 
     /**
@@ -75,6 +76,7 @@ public class Player {
 
         this.stash = new Stash(startBalance);
         this.guiPlayer = new GUI_Player(this.name, this.stash.getAmount());
+        this.prisonCards = 0;
     }
 
     /**
@@ -93,6 +95,24 @@ public class Player {
     public int getBalance()
     {
         return this.stash.getAmount();
+    }
+
+
+
+    public int getPrisonCard () {return this.prisonCards; }
+
+    public int addPrisonCard (int numbersOfPrisonCards)
+    {
+        this.prisonCards += numbersOfPrisonCards;
+
+        return this.prisonCards;
+    }
+
+    public int removePrisonCard (int numbersOfPrisonCards)
+    {
+        this.prisonCards -= numbersOfPrisonCards;
+
+        return this.prisonCards;
     }
 
     /**
