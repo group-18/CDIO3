@@ -85,10 +85,11 @@ board.field.prison.free.card:Du bruger en af dine frikort fra chancen, for at ko
 board.field.prison.free.card.num: Du har nu
 board.field.prison.free.card.num2: frikort tilbage.
 
-chance.description.car:Giv dette kort til BILEN, og tag et chancekort mere. \n BIL: På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. \n Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!
-chance.description.ship:Giv dette kort til SKIBET, og tag et chancekort mere. \n SKIB: På din næste tur skal du sejle frem til et hvilket som helst ledigt felt og købe det. \n Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!
-chance.description.cat:Giv dette kort til KATTEN, og tag et chancekort mere. \n KAT: På din næste tur skal du liste dig hen på et hvilket som helst ledigt felt og købe det. \n Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!
-chance.description.dog:Giv dette kort til HUNDEN, og tag et chancekort mere. \n HUND: På din næste tur skal du hoppe hen på et hvilket som helst ledigt felt og købe det. \n Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!
+chance.description.type.car:Giv dette kort til BILEN, og tag et chancekort mere. \n BIL: På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. \n Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!
+chance.description.type.ship:Giv dette kort til SKIBET, og tag et chancekort mere. \n SKIB: På din næste tur skal du sejle frem til et hvilket som helst ledigt felt og købe det. \n Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!
+chance.description.type.cat:Giv dette kort til KATTEN, og tag et chancekort mere. \n KAT: På din næste tur skal du liste dig hen på et hvilket som helst ledigt felt og købe det. \n Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!
+chance.description.type.dog:Giv dette kort til HUNDEN, og tag et chancekort mere. \n HUND: På din næste tur skal du hoppe hen på et hvilket som helst ledigt felt og købe det. \n Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!
+chance.description.type.action:Vælg et felt at rykke til.
 chance.description.to_start:Ryk frem til START. Modtag 2M.
 chance.description.move_5_fields:Ryk op til 5 felter frem.
 chance.description.move_5_fields.question:Hvor mange felter vil du rykke frem?

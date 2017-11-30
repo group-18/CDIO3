@@ -76,20 +76,20 @@ public class ChanceDeck {
      */
     static private ChanceCard[] defaultChanceCards = new ChanceCard[] {
         new ChanceCard(
-            Translate.t("chance.description.car"),
-            (game) -> {} // todo: missing player types
+            Translate.t("chance.description.type.car"),
+            ChanceCard.typeAction(Player.Type.CAR)
         ),
         new ChanceCard(
-            Translate.t("chance.description.ship"),
-            (game) -> {} // todo: missing player types
+            Translate.t("chance.description.type.ship"),
+            ChanceCard.typeAction(Player.Type.BOAT)
         ),
         new ChanceCard(
-            Translate.t("chance.description.cat"),
-            (game) -> {} // todo: missing player types
+            Translate.t("chance.description.type.cat"),
+            ChanceCard.typeAction(Player.Type.CAT)
         ),
         new ChanceCard(
-            Translate.t("chance.description.dog"),
-            (game) -> {} // todo: missing player types
+            Translate.t("chance.description.type.dog"),
+            ChanceCard.typeAction(Player.Type.DOG)
         ),
         new ChanceCard(
             Translate.t("chance.description.to_start"),
