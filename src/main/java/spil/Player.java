@@ -15,6 +15,12 @@ public class Player {
 
 
     /**
+     * This is the action to run for this Players next turn
+     */
+    private TurnAction turnAction;
+
+
+    /**
      * Enum to determine the player type of a Player
      */
     public enum Type {
@@ -150,6 +156,50 @@ public class Player {
     public Type getType()
     {
         return this.type;
+    }
+
+
+    /**
+     * Interface for Player runnable action instead of it's normal turn
+     */
+    public interface TurnAction {
+        /**
+         * This is the action to run for this Players next turn
+         */
+        void run();
+    }
+
+
+    /**
+     * Sets an action for the next turn
+     *
+     * @param turnAction The action to perform
+     */
+    public void setTurnAction(TurnAction turnAction)
+    {
+        this.turnAction = turnAction;
+    }
+
+
+    /**
+     * Runs the action. The action will be removed after use.
+     */
+    public void runTurnAction()
+    {
+        if (this.hasTurnAction()) {
+            this.turnAction.run();
+            this.turnAction = null;
+        }
+    }
+
+    /**
+     * Determine if this Player has a TurnAction set
+     *
+     * @return Whether there is a TurnAction or not
+     */
+    public boolean hasTurnAction()
+    {
+        return this.turnAction != null;
     }
 
 }

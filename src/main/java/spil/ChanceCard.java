@@ -1,6 +1,11 @@
 package spil;
 
 import gui_main.GUI;
+import spil.Board.Field;
+import spil.Board.HouseField;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class ChanceCard {
@@ -34,6 +39,47 @@ public class ChanceCard {
         game.getGui().displayChanceCard(this.description);
 
         this.action.run(game);
+    }
+
+
+    /**
+     * Method for used in ChanceCards regarding {@link Player.Type}.
+     *
+     * @param type The Player Type to give this card to
+     * @return The Action function to be run
+     */
+    public static Action typeAction(Player.Type type)
+    {
+        return (Game game) -> {
+            Player player = game.getPlayerByType(type);
+
+            if (player != null) {
+                player.setTurnAction(() -> {
+                    ArrayList<Field> fields = new ArrayList<>(Arrays.asList(game.getFields()));
+
+                    // Only use HouseFields
+                    fields.removeIf(field -> ! (field instanceof HouseField));
+
+
+                    // Check if there is any free fields
+                    Field[] fieldsToUse = (Field[]) fields.stream().filter(field -> ((HouseField) field).isOwned()).toArray();
+                    if (fieldsToUse.length == 0) {
+                        fieldsToUse = fields.toArray(new Field[] {});
+                    }
+
+                    String[] fieldNames = new String[fieldsToUse.length];
+                    for (int i = 0; i < fieldsToUse.length; i++) {
+                        fieldNames[i] = fieldsToUse[i].getName();
+                    }
+
+                    String fieldName = game.getGui().getUserSelection(Translate.t("chance.description.type.action"), fieldNames);
+
+                    game.movePlayer(player, fieldName);
+                });
+            }
+
+            game.getChanceDeck().draw().play(game);
+        };
     }
 
 

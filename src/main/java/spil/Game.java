@@ -41,8 +41,13 @@ public class Game {
 
         do {
             this.currentPlayer = getNextPlayer();
-            // Add Game Logic Here
-            playRound();
+
+            if (this.currentPlayer.hasTurnAction()) {
+                this.currentPlayer.runTurnAction();
+            } else {
+                playRound();
+            }
+
         } while (! this.winnerFound);
     }
 
@@ -65,9 +70,27 @@ public class Game {
     }
 
 
+    public Player getPlayerByType(Player.Type type)
+    {
+        for (Player player : this.players) {
+            if (player.getType() == type) {
+                return player;
+            }
+        }
+
+        return null;
+    }
+
+
     public Player[] getPlayers()
     {
         return this.players;
+    }
+
+
+    public Field[] getFields()
+    {
+        return this.board.getFields();
     }
 
 
