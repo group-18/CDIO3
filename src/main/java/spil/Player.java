@@ -1,6 +1,5 @@
 package spil;
 
-import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 
 /**
@@ -11,7 +10,50 @@ public class Player {
     private GUI_Player guiPlayer;
     private String name;
     private Stash stash;
-    private String type;
+    private Type type = Type.CAT;
+
+
+    /**
+     * Enum to determine the player type of a Player
+     */
+    public enum Type {
+        CAT,
+        DOG,
+        CAR,
+        BOAT;
+
+        /**
+         * Converts a String to it's corresponding Type
+         *
+         * @param name The string to transform
+         * @return The Player type
+         */
+        public static Type toEnum(String name)
+        {
+            try {
+                return Type.valueOf(name.toUpperCase());
+            } catch (Exception exception) {
+                return Type.CAT;
+            }
+        }
+
+        /**
+         * Retrieve all Types as strings
+         *
+         * @return The Types as strings
+         */
+        public static String[] valuesToString()
+        {
+            Type[] types = Type.values();
+            String[] typesString = new String[types.length];
+
+            for (int i = 0; i < types.length; i++) {
+                typesString[i] = types[i].toString();
+            }
+
+            return typesString;
+        }
+    }
 
     /**
      * Constructs a Player with a name and a start balance of '0'
@@ -33,7 +75,6 @@ public class Player {
 
         this.stash = new Stash(startBalance);
         this.guiPlayer = new GUI_Player(this.name, this.stash.getAmount());
-        this.type="car";
     }
 
     /**
@@ -77,21 +118,17 @@ public class Player {
      *  Changes the default type of player
      * @param type The type of player to be
      */
-    public void setType(String type){
-        switch (type){
-            case "cat" : this.type = "cat"; break;
-            case "dog" : this.type = "dog"; break;
-            case "boat" : this.type = "boat"; break;
-            case "car" : this.type = "car"; break;
-        }
+    public void setType(Type type)
+    {
+        this.type = type;
     }
 
     /**
      * Retrieve this players type
      * @return the type of player
      */
-
-    public String getType(){
+    public Type getType()
+    {
         return this.type;
     }
 

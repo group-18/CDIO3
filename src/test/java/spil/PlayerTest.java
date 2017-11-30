@@ -36,12 +36,12 @@ public class PlayerTest {
     }
 
     @Test
-    public void getType() throws Exception{
-        Assert.assertEquals("car",this.player.getType());
+    public void getType() throws Exception {
+        Assert.assertEquals(Player.Type.CAT, this.player.getType());
 
-        this.player.setType("boat");
+        this.player.setType(Player.Type.BOAT);
 
-        Assert.assertEquals("boat",this.player.getType());
+        Assert.assertEquals(Player.Type.BOAT, this.player.getType());
     }
 
 }

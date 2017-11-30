@@ -118,11 +118,15 @@ public class Game {
 
         for (int i = 0; i < this.players.length; i++) {
             String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
+            String type = this.gui.getUserSelection(Translate.t("type.whatplayer"), Player.Type.valuesToString());
 
-            this.players[i] = new Player(name, this.getStartAmount(numberOfPlayers));
-            this.players[i].setType(this.gui.getUserSelection(Translate.t("type.whatplayer"), "cat", "dog", "boat", "dog"));
-            this.gui.addPlayer(this.players[i].getGuiPlayer());
-            this.board.addPlayer(this.players[i]);
+            Player player = new Player(name, this.getStartAmount(numberOfPlayers));
+            player.setType(Player.Type.toEnum(type));
+
+            this.gui.addPlayer(player.getGuiPlayer());
+            this.board.addPlayer(player);
+
+            this.players[i] = player;
         }
     }
 
