@@ -4,7 +4,6 @@ import gui_main.GUI;
 import spil.Board.Board;
 import spil.Board.Field;
 
-
 public class Game {
 
     private Board board;
@@ -26,9 +25,11 @@ public class Game {
 
     public void play()
     {
-        int numberOfPlayers = playerNoToInt();
+        int numberOfPlayers = choosePlayerAmountStringToInt();
 
         this.createPlayers(numberOfPlayers);
+
+        youngestPlayerStarts(numberOfPlayers);
 
         Player currentPlayer;
         boolean winnerFound = false;
@@ -41,11 +42,12 @@ public class Game {
     }
 
 
-    private int playerNoToInt(){
 
-        String playerNumberString = this.gui.getUserSelection(Translate.t("welcome1.getNumberOfPlayer"), "2", "3", "4");
+    private int choosePlayerAmountStringToInt(){
 
-        int playerNumberInt = Integer.parseInt(playerNumberString);
+        String playerNumberString = this.gui.getUserSelection(Translate.t("welcome1.getNumberOfPlayer"),"2", "3", "4");
+
+        int playerNumberInt = Integer.valueOf(playerNumberString);
 
         return playerNumberInt;
     }
@@ -84,6 +86,30 @@ public class Game {
         }
 
         return this.players[this.playerIndex++];
+    }
+
+
+    private void youngestPlayerStarts(int countplayers){
+
+        String playerNumberString = "";
+
+        switch (countplayers) {
+
+            case 2:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players[0].getName(), "2. " + this.players[1].getName());
+                break;
+
+            case 3:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players[0].getName(), "2. " + this.players[1].getName(), "3. " + this.players[2].getName());
+                break;
+
+            case 4:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players[0].getName(), "2. " + this.players[1].getName(), "3. " + this.players[2].getName(), "4. " + this.players[3].getName());
+                break;
+        }
+
+        playerNumberString = playerNumberString.split("\\.", 2)[0];
+
+        int a = Integer.parseInt(playerNumberString);
+
+        this.playerIndex = a - 1;
     }
 
 

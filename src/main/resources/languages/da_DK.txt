@@ -1,5 +1,6 @@
 welcome1.getNumberOfPlayer:Vælg antal spillere:
 welcome2.getNamePlayer:Indtast navn på spillere:
+welcome3.getYoungestPlayer:Vælg den yngste spiller:
 
 kast.rollDie:Kast med terning
 
