@@ -128,6 +128,7 @@ public class HouseField extends Field {
                 if (!isOwnedByPlayer(player)){
                     player.addBalance(-this.rentToInt(getRent()));
                     this.getOwner().addBalance(this.rentToInt(getRent()));
+                    game.getGui().showMessage("Dette felt tilhører " + this.getOwner().getName() + ", som derfor tjener " + getRent() + "M fra " + game.getCurrentPlayer().getName());
                 }
             }
             else {
