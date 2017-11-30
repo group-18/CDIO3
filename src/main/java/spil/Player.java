@@ -202,4 +202,16 @@ public class Player {
         return this.turnAction != null;
     }
 
+
+    /**
+     * Filter method to check if a Player is bankrupt.
+     *
+     * @param player The Player to check
+     * @return Whether the Player is bankrupt or not
+     */
+    public static boolean isBankrupt(Player player)
+    {
+        return player.getBalance() < 0;
+    }
+
 }

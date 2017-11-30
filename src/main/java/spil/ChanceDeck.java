@@ -93,7 +93,7 @@ public class ChanceDeck {
         ),
         new ChanceCard(
             Translate.t("chance.description.to_start"),
-            (game) -> game.movePlayer(game.getCurrentPlayer(), Translate.t("board.field.start.title"))
+            (game) -> game.movePlayer(game.getPlayers().getCurrentPlayer(), Translate.t("board.field.start.title"))
         ),
         new ChanceCard(
             Translate.t("chance.description.move_5_fields"),
@@ -101,7 +101,7 @@ public class ChanceDeck {
                 String fieldAnswer = game.getGui().getUserSelection(Translate.t("chance.description.move_5_fields.question"), "1", "2", "3", "4", "5");
                 int numberOfFields = Integer.parseInt(fieldAnswer);
 
-                game.movePlayer(game.getCurrentPlayer(), numberOfFields);
+                game.movePlayer(game.getPlayers().getCurrentPlayer(), numberOfFields);
             }
         ),
         new ChanceCard(
@@ -142,7 +142,7 @@ public class ChanceDeck {
                 );
 
                 if (answer.equals(Translate.t("chance.description.field_or_card.move"))) {
-                    game.movePlayer(game.getCurrentPlayer(), 1);
+                    game.movePlayer(game.getPlayers().getCurrentPlayer(), 1);
                 } else {
                     game.getChanceDeck().draw().play(game);
                 }
@@ -150,32 +150,33 @@ public class ChanceDeck {
         ),
         new ChanceCard(
             Translate.t("chance.description.slik"),
-            (game) -> game.getCurrentPlayer().addBalance(-2)
+            (game) -> game.getPlayers().getCurrentPlayer().addBalance(-2)
         ),
         new ChanceCard(
             Translate.t("chance.description.prison"),
-            (game) ->game.getCurrentPlayer().addPrisonCard(1)
+            (game) ->game.getPlayers().getCurrentPlayer().addPrisonCard(1)
         ),
         new ChanceCard(
             Translate.t("chance.description.strandpromenaden"),
-            (game) -> game.movePlayer(game.getCurrentPlayer(), Translate.t("board.field.strandpromenaden.description"))
+            (game) -> game.movePlayer(game.getPlayers().getCurrentPlayer(), Translate.t("board.field.strandpromenaden.description"))
         ),
         new ChanceCard(
             Translate.t("chance.description.birthday"),
             (game) -> {
-                for (Player player : game.getPlayers()) {
+                PlayerCollection players = game.getPlayers();
+                for (Player player : players) {
                     player.addBalance(-1);
-                    game.getCurrentPlayer().addBalance(1);
+                    players.getCurrentPlayer().addBalance(1);
                 }
             }
         ),
         new ChanceCard(
             Translate.t("chance.description.homework"),
-            (game) -> game.getCurrentPlayer().addBalance(2)
+            (game) -> game.getPlayers().getCurrentPlayer().addBalance(2)
         ),
         new ChanceCard(
             Translate.t("chance.description.skaterparken"),
-            (game) -> game.movePlayer(game.getCurrentPlayer(), Translate.t("board.field.skaterparken.description"))
+            (game) -> game.movePlayer(game.getPlayers().getCurrentPlayer(), Translate.t("board.field.skaterparken.description"))
         ),
     };
 

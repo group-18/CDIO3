@@ -51,7 +51,7 @@ public class ChanceCard {
     public static Action typeAction(Player.Type type)
     {
         return (Game game) -> {
-            Player player = game.getPlayerByType(type);
+            Player player = game.getPlayers().getByType(type);
 
             if (player != null) {
                 player.setTurnAction(() -> {
@@ -90,7 +90,7 @@ public class ChanceCard {
     public interface Action {
         /**
          * The action this ChanceCard should do. Implement actions
-         * to apply on a {@link Player} (using {@link Game#getCurrentPlayer()}
+         * to apply on {@link Player}s (using {@link Game#getPlayers()}
          * and/or interact with the {@link GUI} (using {@link Game#getGui()}.
          *
          * @param game The Game to act with

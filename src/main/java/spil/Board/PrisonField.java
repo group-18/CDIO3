@@ -74,21 +74,21 @@ public class PrisonField extends Field {
     @Override
     public void runAction(Game game) {
         if (! this.isVisit) {
-            if((game.getCurrentPlayer().getPrisonCard()==0))
-            {
+            Player player = game.getPlayers().getCurrentPlayer();
+
+            if (player.getPrisonCard() == 0) {
                 game.getGui().showMessage(Translate.t("board.field.prison.action"));
-                game.movePlayer(game.getCurrentPlayer(), Translate.t("board.field.prison.visit.title"));
-                game.getCurrentPlayer().addBalance(-2);
+                game.movePlayer(player, Translate.t("board.field.prison.visit.title"));
+
+                player.addBalance(-2);
                 game.getGui().showMessage(Translate.t("board.field.prison.pay"));
-            }
+            } else {
+                game.getGui().showMessage(Translate.t("board.field.prison.action"));
+                game.movePlayer(player, Translate.t("board.field.prison.visit.title"));
+                game.getGui().showMessage(Translate.t("board.field.prison.free.card"));
 
-            else{
-                    game.getGui().showMessage(Translate.t("board.field.prison.action"));
-                    game.movePlayer(game.getCurrentPlayer(), Translate.t("board.field.prison.visit.title"));
-                    game.getGui().showMessage(Translate.t("board.field.prison.free.card"));
-                    game.getCurrentPlayer().removePrisonCard(1);
-                    game.getGui().showMessage(Translate.t("board.field.prison.free.card.num") + game.getCurrentPlayer().getPrisonCard() + Translate.t("board.field.prison.free.card.num2"));
-
+                player.removePrisonCard(1);
+                game.getGui().showMessage(Translate.t("board.field.prison.free.card.num") + player.getPrisonCard() + Translate.t("board.field.prison.free.card.num2"));
             }
         }
     }

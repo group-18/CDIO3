@@ -122,13 +122,13 @@ public class HouseField extends Field {
 
     @Override
     public void runAction(Game game) {
-        Player player = game.getCurrentPlayer();
+        Player player = game.getPlayers().getCurrentPlayer();
 
         if (this.isOwned()){
                 if (!isOwnedByPlayer(player)){
                     player.addBalance(-this.rentToInt(getRent()));
                     this.getOwner().addBalance(this.rentToInt(getRent()));
-                    game.getGui().showMessage("Dette felt tilhører " + this.getOwner().getName() + ", som derfor tjener " + getRent() + "M fra " + game.getCurrentPlayer().getName());
+                    game.getGui().showMessage("Dette felt tilhører " + this.getOwner().getName() + ", som derfor tjener " + getRent() + "M fra " + player.getName());
                 }
             }
             else {

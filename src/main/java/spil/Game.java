@@ -15,10 +15,8 @@ public class Game {
 
     private Die die;
     private ChanceDeck chanceDeck;
+    private PlayerCollection players;
 
-    private Player[] players;
-    private Player currentPlayer;
-    private int playerIndex = 0;
     private boolean winnerFound = false;
 
 
@@ -26,8 +24,10 @@ public class Game {
     {
         this.board = new Board();
         this.gui = new GUI(this.board.getGuiFields());
+
         this.die = new Die();
         this.chanceDeck = new ChanceDeck();
+        this.players = new PlayerCollection();
     }
 
 
@@ -40,14 +40,15 @@ public class Game {
         youngestPlayerStarts(numberOfPlayers);
 
         do {
-            this.currentPlayer = getNextPlayer();
+            Player currentPlayer = this.players.getCurrentPlayer();
 
-            if (this.currentPlayer.hasTurnAction()) {
-                this.currentPlayer.runTurnAction();
+            if (currentPlayer.hasTurnAction()) {
+                currentPlayer.runTurnAction();
             } else {
-                playRound();
+                playRound(currentPlayer);
             }
 
+            this.players.incrementPlayerIndex();
         } while (! this.winnerFound);
     }
 
@@ -58,34 +59,17 @@ public class Game {
     }
 
 
+    public PlayerCollection getPlayers()
+    {
+        return this.players;
+    }
+
+
     public ChanceDeck getChanceDeck()
     {
         return this.chanceDeck;
     }
 
-
-    public Player getCurrentPlayer()
-    {
-        return this.currentPlayer;
-    }
-
-
-    public Player getPlayerByType(Player.Type type)
-    {
-        for (Player player : this.players) {
-            if (player.getType() == type) {
-                return player;
-            }
-        }
-
-        return null;
-    }
-
-
-    public Player[] getPlayers()
-    {
-        return this.players;
-    }
 
 
     public Field[] getFields()
@@ -140,11 +124,9 @@ public class Game {
 
     private void createPlayers(int numberOfPlayers)
     {
-        this.players = new Player[numberOfPlayers];
-
         ArrayList<String> types = new ArrayList<>(Arrays.asList(Player.Type.valuesToString()));
 
-        for (int i = 0; i < this.players.length; i++) {
+        for (int i = 0; i < numberOfPlayers; i++) {
             String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
             String type = this.gui.getUserSelection(Translate.t("type.whatplayer"), types.toArray(new String[] {}));
 
@@ -155,8 +137,7 @@ public class Game {
 
             this.gui.addPlayer(player.getGuiPlayer());
             this.board.addPlayer(player);
-
-            this.players[i] = player;
+            this.players.addPlayer(player);
         }
     }
 
@@ -172,16 +153,6 @@ public class Game {
     }
 
 
-    private Player getNextPlayer()
-    {
-        if (this.playerIndex >= this.players.length) {
-            this.playerIndex = 0;
-        }
-
-        return this.players[this.playerIndex++];
-    }
-
-
     /**
      * Brings a gui-dropdown menu to ask player who is youngest of the players.
      * The youngest player starts.
@@ -194,13 +165,13 @@ public class Game {
 
         switch (countplayers) {
 
-            case 2:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players[0].getName(), "2. " + this.players[1].getName());
+            case 2:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players.get(0).getName(), "2. " + this.players.get(1).getName());
                 break;
 
-            case 3:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players[0].getName(), "2. " + this.players[1].getName(), "3. " + this.players[2].getName());
+            case 3:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players.get(0).getName(), "2. " + this.players.get(1).getName(), "3. " + this.players.get(2).getName());
                 break;
 
-            case 4:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players[0].getName(), "2. " + this.players[1].getName(), "3. " + this.players[2].getName(), "4. " + this.players[3].getName());
+            case 4:  playerNumberString = this.gui.getUserSelection(Translate.t("welcome3.getYoungestPlayer"), "1. " + this.players.get(0).getName(), "2. " + this.players.get(1).getName(), "3. " + this.players.get(2).getName(), "4. " + this.players.get(3).getName());
                 break;
         }
 
@@ -208,38 +179,29 @@ public class Game {
 
         int a = Integer.parseInt(playerNumberString);
 
-        this.playerIndex = a - 1;
+        this.players.setPlayerIndex(a - 1);
     }
 
 
-    public void playRound()
+    public void playRound(Player currentPlayer)
     {
         this.gui.getUserButtonPressed(Translate.t("kast.rollDie") + " "+ currentPlayer.getName() + Translate.t("kast.rollDie1"), "Kast");
         this.die.roll();
 
         int faceValue = this.die.getFaceValue();
         this.gui.setDie(faceValue);
-        this.gui.showMessage(this.currentPlayer.getName() + Translate.t("kast.rollDie2") + " "+faceValue);
+        this.gui.showMessage(currentPlayer.getName() + Translate.t("kast.rollDie2") + " "+faceValue);
 
-        this.movePlayer(this.currentPlayer, faceValue);
+        this.movePlayer(currentPlayer, faceValue);
 
         Field field = this.board.getPlayerField(currentPlayer);
         field.runAction(this);
-        isCurrentPlayerBankupt();
-    }
 
-    /**
-     * Checks if player is bankrupt, and if true:
-     * changes winnerfound & outputs message
-     */
-
-    public void isCurrentPlayerBankupt()
-    {
-        if(currentPlayer.getBalance() <= 0)
-            {
-                this.gui.showMessage(this.currentPlayer.getName() + Translate.t("end.game.bankrupt"));
-                this.winnerFound = true;
-            }
+        if (this.players.isAnyBankrupt()) {
+            Player bankruptPlayer = this.players.getBankruptPlayer();
+            this.gui.showMessage(bankruptPlayer.getName() + Translate.t("end.game.bankrupt"));
+            this.winnerFound = true;
+        }
     }
 
 
