@@ -5,6 +5,9 @@ import spil.Board.Board;
 import spil.Board.Field;
 import spil.Board.PrisonField;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Game {
 
     private Board board;
@@ -116,9 +119,13 @@ public class Game {
     {
         this.players = new Player[numberOfPlayers];
 
+        ArrayList<String> types = new ArrayList<>(Arrays.asList(Player.Type.valuesToString()));
+
         for (int i = 0; i < this.players.length; i++) {
             String name = this.gui.getUserString(Translate.t("welcome2.getNamePlayer"));
-            String type = this.gui.getUserSelection(Translate.t("type.whatplayer"), Player.Type.valuesToString());
+            String type = this.gui.getUserSelection(Translate.t("type.whatplayer"), types.toArray(new String[] {}));
+
+            types.remove(type);
 
             Player player = new Player(name, this.getStartAmount(numberOfPlayers));
             player.setType(Player.Type.toEnum(type));
