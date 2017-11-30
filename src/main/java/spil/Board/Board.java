@@ -102,14 +102,22 @@ public class Board {
                 nextFieldPos = nextFieldPos % this.fields.length;
 
                 Field nextField = this.fields[nextFieldPos];
-                this.playerFieldMap.replace(player, nextField);
-
-                currentField.removeCar(player);
-                nextField.setCar(player);
+                this.movePlayer(player, nextField);
 
                 break;
             }
         }
+    }
+
+
+    public void movePlayer(Player player, Field fieldToMove)
+    {
+        Field currentField = this.playerFieldMap.get(player);
+
+        this.playerFieldMap.replace(player, fieldToMove);
+
+        currentField.removeCar(player);
+        fieldToMove.setCar(player);
     }
 
 
