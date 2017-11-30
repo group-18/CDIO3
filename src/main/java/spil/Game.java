@@ -41,8 +41,13 @@ public class Game {
 
         do {
             this.currentPlayer = getNextPlayer();
-            // Add Game Logic Here
-            playRound();
+
+            if (this.currentPlayer.hasTurnAction()) {
+                this.currentPlayer.runTurnAction();
+            } else {
+                playRound();
+            }
+
         } while (! this.winnerFound);
     }
 
