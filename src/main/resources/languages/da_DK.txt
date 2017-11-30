@@ -83,7 +83,7 @@ chance.description.slik:Du har spist for meget slik. BETAL 2M til banken.
 chance.description.prison:Du løslades uden omkostninger. Behold dette kort, indtil du får brug for det.
 chance.description.strandpromenaden:Ryk frem til Strandpromenaden.
 chance.description.birthday:Det er din fødselsdag! Alle giver dig 1M. Tillykke med fødselsdagen!
-chance.description.homework:Du har lavet alle dine lekter! Modtag 2M fra banken.
+chance.description.homework:Du har lavet alle dine lektier! Modtag 2M fra banken.
 chance.description.skaterparken:GRATIS FELT! Ryk frem til Skaterparken for at lave det perfekte grind! Hvis ingen ejer den, får du den GRATIS! Ellers skal du betale leje til ejeren.
 
 end.game.bankrupt: er gået bankerot. Spillet slutter.
