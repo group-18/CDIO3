@@ -111,7 +111,11 @@ public class Game {
                 break;
         }
 
-        this.playerIndex = (Integer.parseInt(playerNumberString)-1);
+        playerNumberString = playerNumberString.split("\\.", 2)[0];
+
+        int a = Integer.parseInt(playerNumberString);
+
+        this.playerIndex = a - 1;
     }
 
 
