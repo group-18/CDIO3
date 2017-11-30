@@ -203,7 +203,6 @@ public class Game {
         Field field = this.board.getPlayerField(currentPlayer);
         field.runAction(this);
         isCurrentPlayerBankupt();
-        System.out.println(getCurrentPlayer().getName() + getCurrentPlayer().getPrisonCard());
     }
 
     /**
