@@ -124,12 +124,18 @@ public class PlayerCollection extends ArrayList<Player> {
         for (Player player : this) {
             if (tmpWinner == null) {
                 tmpWinner = player;
+                winners.add(player);
             } else if (player.getBalance() > tmpWinner.getBalance()) {
                 tmpWinner = player;
                 winners.clear();
+                winners.add(player);
+            }
+            else if (player.getBalance()>=tmpWinner.getBalance()){
+                tmpWinner = player;
+                winners.add(player);
             }
 
-            winners.add(player);
+
         }
 
         return winners.toArray(new Player[] {});
