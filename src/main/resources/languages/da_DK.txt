@@ -100,7 +100,7 @@ chance.description.move_to_lightblue:Ryk frem til et lyseblåt felt. Hvis det er
 chance.description.move_to_pink_darkblue:Ryk frem til et pink eller mørkeblåt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
 chance.description.move_to_red:Ryk frem til et rødt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
 chance.description.move_to_lightblue_red:Ryk frem til et lyseblåt eller rødt felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
-chance.description.move_to_brown_yellow:Ryk frem til et brunt eller gult felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
+chance.description.move_to_brown_yellow:Ryk frem til et gråt eller gult felt. Hvis det er ledigt, får du det GRATIS! Ellers skal du BETALE leje til ejeren.
 chance.description.field_or_card:Ryk 1 felt frem, eller tag et chancekort mere.
 chance.description.field_or_card.question:Ryk 1 felt eller tag nyt chancekort?
 chance.description.field_or_card.move:Ryk 1 felt
