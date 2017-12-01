@@ -31,28 +31,6 @@ public class Game {
     }
 
 
-    public void play()
-    {
-        int numberOfPlayers = choosePlayerAmountStringToInt();
-
-        this.createPlayers(numberOfPlayers);
-
-        youngestPlayerStarts(numberOfPlayers);
-
-        do {
-            Player currentPlayer = this.players.getCurrentPlayer();
-
-            if (currentPlayer.hasTurnAction()) {
-                currentPlayer.runTurnAction();
-            } else {
-                playRound(currentPlayer);
-            }
-
-            this.players.incrementPlayerIndex();
-        } while (! this.winnerFound);
-    }
-
-
     public GUI getGui()
     {
         return this.gui;
@@ -111,7 +89,6 @@ public class Game {
      * Brings a gui-dropdown menu to ask player how many are playing the game.
      * Choose between: 2, 3 or 4 players
      */
-
     private int choosePlayerAmountStringToInt(){
 
         String playerNumberString = this.gui.getUserSelection(Translate.t("welcome1.getNumberOfPlayer"),"2", "3", "4");
@@ -183,6 +160,36 @@ public class Game {
     }
 
 
+    private boolean hasPlayerPassedStart(Player player, Field oldField)
+    {
+        Field newField = this.board.getPlayerField(player);
+
+        return this.board.isFieldBefore(newField, oldField);
+    }
+
+
+    public void play()
+    {
+        int numberOfPlayers = choosePlayerAmountStringToInt();
+
+        this.createPlayers(numberOfPlayers);
+
+        youngestPlayerStarts(numberOfPlayers);
+
+        do {
+            Player currentPlayer = this.players.getCurrentPlayer();
+
+            if (currentPlayer.hasTurnAction()) {
+                currentPlayer.runTurnAction();
+            } else {
+                playRound(currentPlayer);
+            }
+
+            this.players.incrementPlayerIndex();
+        } while (! this.winnerFound);
+    }
+
+
     public void playRound(Player currentPlayer)
     {
         this.gui.getUserButtonPressed(Translate.t("kast.rollDie") + " "+ currentPlayer.getName() + Translate.t("kast.rollDie1"), "Kast");
@@ -202,14 +209,6 @@ public class Game {
             this.gui.showMessage(bankruptPlayer.getName() + Translate.t("end.game.bankrupt"));
             this.winnerFound = true;
         }
-    }
-
-
-    private boolean hasPlayerPassedStart(Player player, Field oldField)
-    {
-        Field newField = this.board.getPlayerField(player);
-
-        return this.board.isFieldBefore(newField, oldField);
     }
 
 
