@@ -61,15 +61,23 @@ public class ChanceCard {
                     fields.removeIf(field -> ! (field instanceof HouseField));
 
 
+                    ArrayList<Field> fieldsToUse = new ArrayList<>();
+
                     // Check if there is any free fields
-                    Field[] fieldsToUse = (Field[]) fields.stream().filter(field -> ((HouseField) field).isOwned()).toArray();
-                    if (fieldsToUse.length == 0) {
-                        fieldsToUse = fields.toArray(new Field[] {});
+                    for (Field field : fields) {
+                        if (((HouseField) field).isOwned()) {
+                            fieldsToUse.add(field);
+                        }
                     }
 
-                    String[] fieldNames = new String[fieldsToUse.length];
-                    for (int i = 0; i < fieldsToUse.length; i++) {
-                        fieldNames[i] = fieldsToUse[i].getName();
+                    // If no free fields...
+                    if (fieldsToUse.size() == 0) {
+                        fieldsToUse = fields;
+                    }
+
+                    String[] fieldNames = new String[fieldsToUse.size()];
+                    for (int i = 0; i < fieldsToUse.size(); i++) {
+                        fieldNames[i] = fieldsToUse.get(i).getName();
                     }
 
                     String fieldName = game.getGui().getUserSelection(Translate.t("chance.description.type.action"), fieldNames);
