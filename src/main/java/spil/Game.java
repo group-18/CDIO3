@@ -37,6 +37,12 @@ public class Game {
     }
 
 
+    public Board getBoard()
+    {
+        return this.board;
+    }
+
+
     public PlayerCollection getPlayers()
     {
         return this.players;

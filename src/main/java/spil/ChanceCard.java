@@ -4,6 +4,7 @@ import gui_main.GUI;
 import spil.Board.Field;
 import spil.Board.HouseField;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -87,6 +88,32 @@ public class ChanceCard {
             }
 
             game.getChanceDeck().draw().play(game);
+        };
+    }
+
+
+    public static Action fieldTypeAction(Color ...types)
+    {
+        return (Game game) -> {
+            Player player = game.getPlayers().getCurrentPlayer();
+            HouseField[] fields = game.getBoard().getFieldsByTypes(types);
+
+            String[] fieldNames = new String[fields.length];
+            for (int i = 0; i < fields.length; i++) {
+                fieldNames[i] = fields[i].getTitle();
+            }
+
+            String fieldName = game.getGui().getUserSelection(Translate.t("chance.description.move_to.action"), fieldNames);
+
+            game.movePlayer(player, fieldName);
+
+            HouseField field = (HouseField) game.getBoard().getFieldByTitle(fieldName);
+
+            if (field.isOwned()) {
+//                field.payRent(player);
+            } else {
+                field.setOwner(player);
+            }
         };
     }
 

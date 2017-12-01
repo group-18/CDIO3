@@ -1,5 +1,6 @@
 package spil;
 
+import java.awt.Color;
 import java.util.Random;
 
 
@@ -106,31 +107,31 @@ public class ChanceDeck {
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_orange"),
-            (game) -> {} // todo: missing field types
+            ChanceCard.fieldTypeAction(Color.ORANGE)
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_orange_green"),
-            (game) -> {} // todo: missing field types
+            ChanceCard.fieldTypeAction(Color.ORANGE, Color.GREEN)
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_lightblue"),
-            (game) -> {} // todo: missing field types
+            ChanceCard.fieldTypeAction(Color.LIGHT_GRAY)
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_pink_darkblue"),
-            (game) -> {} // todo: missing field types
+            ChanceCard.fieldTypeAction(Color.PINK, Color.BLUE)
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_red"),
-            (game) -> {} // todo: missing field types
+            ChanceCard.fieldTypeAction(Color.RED)
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_lightblue_red"),
-            (game) -> {} // todo: missing field types
+            ChanceCard.fieldTypeAction(Color.LIGHT_GRAY, Color.RED)
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_brown_yellow"),
-            (game) -> {} // todo: missing field types
+            ChanceCard.fieldTypeAction(Color.GRAY, Color.YELLOW)
         ),
         new ChanceCard(
             Translate.t("chance.description.field_or_card"),
