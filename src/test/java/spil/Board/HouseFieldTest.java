@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import spil.Player;
+import java.awt.Color;
 
 
 public class HouseFieldTest {
@@ -14,7 +15,7 @@ public class HouseFieldTest {
     @Before
     public void setUp() throws Exception
     {
-        this.field = new HouseField("Test name", "10");
+        this.field = new HouseField("Test name", 10, Color.WHITE);
     }
 
 
@@ -28,8 +29,8 @@ public class HouseFieldTest {
     @Test
     public void setName() throws Exception
     {
-        this.field.setName("Changed name");
-        Assert.assertTrue(this.field.getName().equals("Changed name"));
+        this.field.setTitle("Changed name");
+        Assert.assertTrue(this.field.getTitle().equals("Changed name"));
     }
 
 
@@ -44,15 +45,15 @@ public class HouseFieldTest {
     @Test
     public void setSubDescription() throws Exception
     {
-        this.field.setSubDescription("Changed sub description");
-        Assert.assertTrue(this.field.getSubDescription().equals("Changed sub description"));
+        this.field.setSubText("Changed sub description");
+        Assert.assertTrue(this.field.getSubText().equals("Changed sub description"));
     }
 
 
     @Test
     public void getRent() throws Exception
     {
-        Assert.assertTrue(this.field.getRent().equals("10"));
+        Assert.assertEquals(10, this.field.getRent());
     }
 
 

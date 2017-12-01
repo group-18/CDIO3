@@ -5,6 +5,7 @@ import spil.Player;
 import spil.Translate;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -41,13 +42,13 @@ public class Board {
     /**
      * Get a specific field by name on this Board
      *
-     * @param name The name of a field
+     * @param title The title of a field
      * @return The field
      */
-    public Field getFieldByName(String name)
+    public Field getFieldByTitle(String title)
     {
         for (Field field: this.fields) {
-            if (field.getName().equals(name)) {
+            if (field.getTitle().equals(title)) {
                 return field;
             }
         }
@@ -56,8 +57,38 @@ public class Board {
     }
 
 
+    public HouseField[] getFieldsByTypes(Color ...types)
+    {
+        ArrayList<HouseField> fields = new ArrayList<>();
+
+        for (HouseField field : this.getHouseFields()) {
+            for (Color type : types) {
+                if (field.getType() == type) {
+                    fields.add(field);
+                }
+            }
+        }
+
+        return fields.toArray(new HouseField[] {});
+    }
+
+
+    public HouseField[] getHouseFields()
+    {
+        ArrayList<HouseField> fields = new ArrayList<>();
+
+        for (Field field: this.fields) {
+            if (field instanceof HouseField) {
+                fields.add((HouseField) field);
+            }
+        }
+
+        return fields.toArray(new HouseField[] {});
+    }
+
+
     /**
-     * Get alle fields GUI fields for use in the GUI
+     * Get all fields GUI fields for use in the GUI
      *
      * @return This Boards GUI fields
      */
@@ -153,30 +184,30 @@ public class Board {
     private Field[] createFields()
     {
         return new Field[] {
-            new StartField() .setName("Start") .setSubDescription("") .setBackgroundColor(Color.GREEN),
-            new HouseField(Translate.t("board.field.burgerbaren.description"), "1").setBackgroundColor(Color.gray).setSubDescription("M1"),
-            new HouseField(Translate.t("board.field.pizzeriaet.description"), "1").setBackgroundColor(Color.gray).setSubDescription("M1"),
-            new ChanceField() .setName("Chance"),
-            new HouseField(Translate.t("board.field.slikbutikken.description"), "1").setBackgroundColor(Color.cyan).setSubDescription("M1"),
-            new HouseField(Translate.t("board.field.iskiosken.description"), "1").setBackgroundColor(Color.cyan).setSubDescription("M1"),
+            new StartField() .setTitle("Start") .setSubText("") .setBackgroundColor(Color.GREEN),
+            new HouseField(Translate.t("board.field.burgerbaren.description"), 1, Color.gray).setSubText("M1"),
+            new HouseField(Translate.t("board.field.pizzeriaet.description"), 1, Color.gray).setSubText("M1"),
+            new ChanceField() .setTitle("Chance"),
+            new HouseField(Translate.t("board.field.slikbutikken.description"), 1, Color.cyan).setSubText("M1"),
+            new HouseField(Translate.t("board.field.iskiosken.description"), 1, Color.cyan).setSubText("M1"),
             new PrisonField(true),
-            new HouseField(Translate.t("board.field.museet.description"), "2").setBackgroundColor(Color.pink).setSubDescription("M2"),
-            new HouseField(Translate.t("board.field.biblioteket.description"), "2").setBackgroundColor(Color.pink).setSubDescription("M2"),
-            new ChanceField() .setName("Chance"),
-            new HouseField(Translate.t("board.field.skaterparken.description"), "2").setBackgroundColor(Color.orange).setSubDescription("M2"),
-            new HouseField(Translate.t("board.field.swimmingpoolen.description"), "2").setBackgroundColor(Color.orange).setSubDescription("M2"),
-            new ParkingField() .setName("Parkering"),
-            new HouseField(Translate.t("board.field.spillehallen.description"), "3").setBackgroundColor(Color.red).setSubDescription("M2"),
-            new HouseField(Translate.t("board.field.biografen.description"), "3").setBackgroundColor(Color.red).setSubDescription("M2"),
-            new ChanceField() .setName("Chance"),
-            new HouseField(Translate.t("board.field.legetøjsbutikken.description"), "3").setBackgroundColor(Color.yellow).setSubDescription("M3"),
-            new HouseField(Translate.t("board.field.dyrehandlen.description"), "3").setBackgroundColor(Color.yellow).setSubDescription("M3"),
+            new HouseField(Translate.t("board.field.museet.description"), 2, Color.pink).setSubText("M2"),
+            new HouseField(Translate.t("board.field.biblioteket.description"), 2, Color.pink).setSubText("M2"),
+            new ChanceField() .setTitle("Chance"),
+            new HouseField(Translate.t("board.field.skaterparken.description"), 2, Color.orange).setSubText("M2"),
+            new HouseField(Translate.t("board.field.swimmingpoolen.description"), 2, Color.orange).setSubText("M2"),
+            new ParkingField() .setTitle("Parkering"),
+            new HouseField(Translate.t("board.field.spillehallen.description"), 3, Color.red).setSubText("M2"),
+            new HouseField(Translate.t("board.field.biografen.description"), 3, Color.red).setSubText("M2"),
+            new ChanceField() .setTitle("Chance"),
+            new HouseField(Translate.t("board.field.legetøjsbutikken.description"), 3, Color.yellow).setSubText("M3"),
+            new HouseField(Translate.t("board.field.dyrehandlen.description"), 3, Color.yellow).setSubText("M3"),
             new PrisonField(false),
-            new HouseField(Translate.t("board.field.bowlinghallen.description"), "4").setBackgroundColor(Color.green).setSubDescription("M4"),
-            new HouseField(Translate.t("board.field.zoo.description"), "4").setBackgroundColor(Color.green).setSubDescription("M4"),
-            new ChanceField() .setName("Chance"),
-            new HouseField(Translate.t("board.field.vandlandet.description"), "5").setBackgroundColor(Color.blue).setSubDescription("M5"),
-            new HouseField(Translate.t("board.field.strandpromenaden.description"), "5").setBackgroundColor(Color.blue).setSubDescription("M5"),
+            new HouseField(Translate.t("board.field.bowlinghallen.description"), 4, Color.green).setSubText("M4"),
+            new HouseField(Translate.t("board.field.zoo.description"), 4, Color.green).setSubText("M4"),
+            new ChanceField() .setTitle("Chance"),
+            new HouseField(Translate.t("board.field.vandlandet.description"), 5, Color.blue).setSubText("M5"),
+            new HouseField(Translate.t("board.field.strandpromenaden.description"), 5, Color.blue).setSubText("M5"),
         };
     }
 

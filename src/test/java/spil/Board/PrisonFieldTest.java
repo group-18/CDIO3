@@ -27,8 +27,8 @@ public class PrisonFieldTest {
     @Test
     public void setName() throws Exception
     {
-        this.field.setName("Changed name");
-        Assert.assertTrue(this.field.getName().equals("Changed name"));
+        this.field.setTitle("Changed name");
+        Assert.assertTrue(this.field.getTitle().equals("Changed name"));
     }
 
 
@@ -43,8 +43,8 @@ public class PrisonFieldTest {
     @Test
     public void setSubDescription() throws Exception
     {
-        this.field.setSubDescription("Changed sub description");
-        Assert.assertTrue(this.field.getSubDescription().equals("Changed sub description"));
+        this.field.setSubText("Changed sub description");
+        Assert.assertTrue(this.field.getSubText().equals("Changed sub description"));
     }
 
 

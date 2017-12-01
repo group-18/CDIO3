@@ -37,6 +37,12 @@ public class Game {
     }
 
 
+    public Board getBoard()
+    {
+        return this.board;
+    }
+
+
     public PlayerCollection getPlayers()
     {
         return this.players;
@@ -73,7 +79,7 @@ public class Game {
     {
         Field oldField = this.board.getPlayerField(player);
 
-        Field moveToField = this.board.getFieldByName(fieldName);
+        Field moveToField = this.board.getFieldByTitle(fieldName);
         this.board.movePlayer(player, moveToField);
 
         if (! (oldField instanceof PrisonField) && !(moveToField instanceof PrisonField)) {

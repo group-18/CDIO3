@@ -30,9 +30,9 @@ public class PrisonField extends Field {
         this.isVisit = isVisit;
         String fieldType = isVisit ? "visit" : "goto";
 
-        this.setName(Translate.t("board.field.prison." + fieldType + ".title"));
+        this.setTitle(Translate.t("board.field.prison." + fieldType + ".title"));
         this.setDescription(Translate.t("board.field.prison." + fieldType + ".description"));
-        this.setSubDescription(Translate.t("board.field.prison." + fieldType + ".subDescription"));
+        this.setSubText(Translate.t("board.field.prison." + fieldType + ".subDescription"));
 
         this.setBackgroundColor(Color.BLACK);
         this.setForegroundColor(Color.WHITE);

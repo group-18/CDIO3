@@ -2,11 +2,13 @@ package spil.Board;
 
 import gui_fields.GUI_Field;
 
+import java.awt.Color;
+
 public class BoardStub extends Board {
 
     private Field[] fields = new Field[] {
             new StartField(),
-            new HouseField("Test house", "1"),
+            new HouseField("Test house", 1, Color.WHITE),
             new ChanceField(),
             new PrisonField(false),
             new PrisonField(true),
@@ -22,10 +24,10 @@ public class BoardStub extends Board {
 
 
     @Override
-    public Field getFieldByName(String name)
+    public Field getFieldByTitle(String title)
     {
         for (Field field: this.fields) {
-            if (field.getName().equals(name)) {
+            if (field.getTitle().equals(title)) {
                 return field;
             }
         }
