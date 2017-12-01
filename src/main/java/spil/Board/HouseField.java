@@ -191,7 +191,7 @@ public class HouseField extends Field {
 
         if (! this.isOwned()) {
             this.buyProperty(player);
-            game.getGui().showMessage("Dette felt har ingen ejer. " + player.getName() + " køber dette felt for " + this.getRent());
+            game.getGui().showMessage("Dette felt har ingen ejer, " + player.getName() + " køber dette felt for " + this.getRent() + "M");
         } else if (! this.isOwnedByPlayer(player)) {
             this.payRent(game.getBoard(), player);
             game.getGui().showMessage("Dette felt tilhører " + this.owner.getName() + ", som derfor tjener " + this.getRent() + "M fra " + player.getName());
