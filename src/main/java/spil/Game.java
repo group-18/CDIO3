@@ -3,6 +3,7 @@ package spil;
 import gui_main.GUI;
 import spil.Board.Board;
 import spil.Board.Field;
+import spil.Board.HouseField;
 import spil.Board.PrisonField;
 
 import java.util.ArrayList;
@@ -172,6 +173,37 @@ public class Game {
     }
 
 
+    public void printWinners()
+    {
+        Player[] winners = this.players.getWinner();
+
+        if (winners.length > 1) {
+            for (Player player : winners) {
+                int fieldsValue = 0;
+
+                for (HouseField field : this.board.getFieldsOwnedByPlayer(player)) {
+                    fieldsValue += field.getRent();
+                }
+
+                player.addBalance(fieldsValue);
+            }
+
+            winners = this.players.getWinner();
+
+            if (winners.length > 1) {
+                String[] winnerNames = new String[winners.length];
+                for (int i = 0; i < winners.length; i++) {
+                    winnerNames[i] = winners[i].getName();
+                }
+
+                this.gui.showMessage("Hmm... Det stod vist helt lige imellem " + String.join(", ", winnerNames));
+            }
+        }
+
+        this.gui.showMessage("Vi har en vinder: " + winners[0].getName());
+    }
+
+
     public void play()
     {
         int numberOfPlayers = choosePlayerAmountStringToInt();
@@ -194,6 +226,12 @@ public class Game {
 
         Player bankruptPlayer = this.players.getBankruptPlayer();
         this.gui.showMessage(bankruptPlayer.getName() + Translate.t("end.game.bankrupt"));
+
+        this.printWinners();
+
+        this.gui.showMessage("Tryk OK for at lukke spillet");
+
+        System.exit(0);
     }
 
 
