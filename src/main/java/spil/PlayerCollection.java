@@ -108,4 +108,31 @@ public class PlayerCollection extends ArrayList<Player> {
                 .orElse(null);
     }
 
+
+    /**
+     * Get the Player with most money in the stash.
+     * If it's a tie, returns null.
+     *
+     * @return The winner of the game
+     */
+    public Player[] getWinner()
+    {
+        Player tmpWinner = null;
+
+        ArrayList<Player> winners = new ArrayList<>();
+
+        for (Player player : this) {
+            if (tmpWinner == null) {
+                tmpWinner = player;
+            } else if (player.getBalance() > tmpWinner.getBalance()) {
+                tmpWinner = player;
+                winners.clear();
+            }
+
+            winners.add(player);
+        }
+
+        return winners.toArray(new Player[] {});
+    }
+
 }
