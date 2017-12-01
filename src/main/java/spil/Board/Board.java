@@ -56,7 +56,10 @@ public class Board {
         return null;
     }
 
-
+    /**
+     * Get housefields in an Array, by color(type)
+     * @return fields in Array
+     */
     public HouseField[] getFieldsByTypes(Color ...types)
     {
         ArrayList<HouseField> fields = new ArrayList<>();
@@ -72,7 +75,10 @@ public class Board {
         return fields.toArray(new HouseField[] {});
     }
 
-
+    /**
+     * Get housefields in an Array
+     * @return fields in Array
+     */
     public HouseField[] getHouseFields()
     {
         ArrayList<HouseField> fields = new ArrayList<>();
@@ -86,7 +92,12 @@ public class Board {
         return fields.toArray(new HouseField[] {});
     }
 
-
+    /**
+     * Get housefields in an Array, that is owned by player
+     *
+     * @param player The Player to get info from
+     * @return fields in Array
+     */
     public HouseField[] getFieldsOwnedByPlayer(Player player)
     {
         ArrayList<HouseField> fields = new ArrayList<>();
@@ -154,7 +165,11 @@ public class Board {
         }
     }
 
-
+    /**
+     * Moves the players from the set location to the next location
+     * @param player the the player that needs to be mooved.
+     * @param fieldToMove the field to move from the set location.
+     */
     public void movePlayer(Player player, Field fieldToMove)
     {
         Field currentField = this.playerFieldMap.get(player);
@@ -165,13 +180,23 @@ public class Board {
         fieldToMove.setCar(player);
     }
 
-
+    /**
+     * Get the Field that a player is plased on.
+     * @param player the the player we need info on.
+     * @return player from the playerFieldMap
+     */
     public Field getPlayerField(Player player)
     {
         return this.playerFieldMap.get(player);
     }
 
 
+    /**
+     * Gets info on if the next field is before the current field
+     * @param newField The next field that player will move to - type Field.
+     * @param oldField The current field that player stands on - type Field.
+     * @return boolean if true or not.
+     */
     public boolean isFieldBefore(Field newField, Field oldField)
     {
         if (newField == oldField) {
