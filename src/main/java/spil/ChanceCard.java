@@ -110,7 +110,7 @@ public class ChanceCard {
             HouseField field = (HouseField) game.getBoard().getFieldByTitle(fieldName);
 
             if (field.isOwned()) {
-//                field.payRent(player);
+                field.payRent(player);
             } else {
                 field.setOwner(player);
             }

@@ -94,6 +94,31 @@ public class HouseField extends Field {
 
 
     /**
+     * Buy this HouseField for a Player
+     *
+     * @param player The Player to buy this HouseField
+     */
+    public void buyProperty(Player player)
+    {
+        this.setOwner(player);
+
+        player.addBalance(-this.getRent());
+    }
+
+
+    /**
+     * Pay this HouseFields rent for Player
+     *
+     * @param player The Player to pay the rent for
+     */
+    public void payRent(Player player)
+    {
+        player.addBalance(-this.getRent());
+        this.owner.addBalance(this.getRent());
+    }
+
+
+    /**
      * Method to determine if this HouseField is owned
      *
      * @return Is this HouseField owned?
@@ -124,6 +149,9 @@ public class HouseField extends Field {
     public void setOwner(Player player)
     {
         this.owner = player;
+
+        this.getGuiField().setOwnerName(player.getName());
+        this.getGuiField().setBorder(player.getGuiPlayer().getPrimaryColor());
     }
 
 
@@ -132,18 +160,11 @@ public class HouseField extends Field {
     {
         Player player = game.getPlayers().getCurrentPlayer();
 
-        if (this.isOwned()) {
-            if (!isOwnedByPlayer(player)) {
-                player.addBalance(-this.getRent());
-                this.owner.addBalance(this.getRent());
-                game.getGui().showMessage("Dette felt tilhører " + this.owner.getName() + ", som derfor tjener " + getRent() + "M fra " + player.getName());
-            }
-        } else {
-            player.addBalance(-this.getRent());
-            this.setOwner(player);
-            this.getGuiField().setOwnerName(player.getName());
-
-            this.getGuiField().setBorder(player.getGuiPlayer().getPrimaryColor());
+        if (! this.isOwned()) {
+            this.buyProperty(player);
+        } else if (! this.isOwnedByPlayer(player)) {
+            this.payRent(player);
+            game.getGui().showMessage("Dette felt tilhører " + this.owner.getName() + ", som derfor tjener " + this.getRent() + "M fra " + player.getName());
         }
     }
 
