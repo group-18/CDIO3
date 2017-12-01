@@ -6,7 +6,7 @@ public class BoardStub extends Board {
 
     private Field[] fields = new Field[] {
             new StartField(),
-            new HouseField("Test house", "1"),
+            new HouseField("Test house", 1),
             new ChanceField(),
             new PrisonField(false),
             new PrisonField(true),

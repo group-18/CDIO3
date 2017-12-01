@@ -11,7 +11,7 @@ public class HouseField extends Field {
     /**
      * The rent for this HouseField
      */
-    private String rent;
+    private int rent;
 
     /**
      * The Player which own this HouseField.
@@ -29,7 +29,7 @@ public class HouseField extends Field {
      * @param name The title of this HouseField
      * @param rent The rent of this HouseField
      */
-    public HouseField(String name, String rent) {
+    public HouseField(String name, int rent) {
         this(name, "", "", rent, Color.BLUE, Color.BLACK);
     }
 
@@ -45,12 +45,12 @@ public class HouseField extends Field {
      * @param backgroundColor The color of this HouseField background
      * @param foregroundColor The color of this HouseField foreground
      */
-    public HouseField(String name, String description, String subDescription, String rent, Color backgroundColor, Color foregroundColor) {
+    public HouseField(String name, String description, String subDescription, int rent, Color backgroundColor, Color foregroundColor) {
         super(name, description, subDescription, backgroundColor, foregroundColor);
 
         this.rent = rent;
 
-        this.getGuiField().setRent(this.rent);
+        this.getGuiField().setRent("M" + this.rent);
     }
 
 
@@ -77,13 +77,10 @@ public class HouseField extends Field {
      *
      * @return The rent for this HouseField
      */
-    public String getRent() {
+    public int getRent() {
         return this.rent;
     }
 
-    private int rentToInt(String rent) {
-        return Integer.parseInt(rent);
-    }
 
     /**
      * Method to determine if this HouseField is owned
@@ -126,13 +123,13 @@ public class HouseField extends Field {
 
         if (this.isOwned()){
                 if (!isOwnedByPlayer(player)){
-                    player.addBalance(-this.rentToInt(getRent()));
-                    this.getOwner().addBalance(this.rentToInt(getRent()));
+                    player.addBalance(-this.getRent());
+                    this.getOwner().addBalance(this.getRent());
                     game.getGui().showMessage("Dette felt tilhører " + this.getOwner().getName() + ", som derfor tjener " + getRent() + "M fra " + player.getName());
                 }
             }
             else {
-                player.addBalance(-this.rentToInt(getRent()));
+                player.addBalance(-this.getRent());
                 this.setOwner(player);
                 this.getGuiField().setOwnerName(player.getName());
 

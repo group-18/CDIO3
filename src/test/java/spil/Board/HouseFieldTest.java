@@ -14,7 +14,7 @@ public class HouseFieldTest {
     @Before
     public void setUp() throws Exception
     {
-        this.field = new HouseField("Test name", "10");
+        this.field = new HouseField("Test name", 10);
     }
 
 
@@ -52,7 +52,7 @@ public class HouseFieldTest {
     @Test
     public void getRent() throws Exception
     {
-        Assert.assertTrue(this.field.getRent().equals("10"));
+        Assert.assertEquals(10, this.field.getRent());
     }
 
 
