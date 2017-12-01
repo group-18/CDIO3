@@ -20,9 +20,9 @@ public abstract class Field {
     private String description;
 
     /**
-     * The sub description for this Field
+     * The subtext for this Field
      */
-    private String subDescription;
+    private String subText;
 
 
     /**
@@ -58,15 +58,15 @@ public abstract class Field {
      *
      * @param title The title of this Field
      * @param description The description of this Field (shown in the card in the middle of the board)
-     * @param subDescription The sub description of this Field (shown in the actual field on the board)
+     * @param subText The subtext of this Field (shown in the actual field on the board)
      * @param backgroundColor The color of this Field background
      * @param foregroundColor The color of this Field foreground
      */
-    public Field(String title, String description, String subDescription, Color backgroundColor, Color foregroundColor)
+    public Field(String title, String description, String subText, Color backgroundColor, Color foregroundColor)
     {
         this(title);
 
-        this.setDescription(description).setSubDescription(subDescription);
+        this.setDescription(description).setSubText(subText);
         this.setBackgroundColor(backgroundColor).setForegroundColor(foregroundColor);
     }
 
@@ -131,9 +131,9 @@ public abstract class Field {
      *
      * @return The sub description of this Field
      */
-    public String getSubDescription()
+    public String getSubText()
     {
-        return this.subDescription;
+        return this.subText;
     }
 
 
@@ -142,13 +142,13 @@ public abstract class Field {
      * the corresponding GUI field. Returns this Field
      * for easy chaining.
      *
-     * @param subDescription The new sub description of this Field
+     * @param subText The new sub description of this Field
      * @return This Field
      */
-    public Field setSubDescription(String subDescription)
+    public Field setSubText(String subText)
     {
-        this.subDescription = subDescription;
-        this.guiField.setSubText(this.subDescription);
+        this.subText = subText;
+        this.guiField.setSubText(this.subText);
 
         return this;
     }

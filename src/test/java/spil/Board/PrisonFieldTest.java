@@ -43,8 +43,8 @@ public class PrisonFieldTest {
     @Test
     public void setSubDescription() throws Exception
     {
-        this.field.setSubDescription("Changed sub description");
-        Assert.assertTrue(this.field.getSubDescription().equals("Changed sub description"));
+        this.field.setSubText("Changed sub description");
+        Assert.assertTrue(this.field.getSubText().equals("Changed sub description"));
     }
 
 
