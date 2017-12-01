@@ -18,37 +18,34 @@ public class HouseField extends Field {
      * Is {@code null} when not owned.
      */
     private Player owner;
-    private HouseField houseField;
+
+    /**
+     * The type of this HouseField.
+     * Also determines the background color of the GUI_Field.
+     */
+    private Color type;
 
 
 
     /**
      * Constructs a HouseField with a given name and rent. Sets a default description, sub description,
-     * background color and foreground color
+     * type and foreground color
      *
-     * @param name The title of this HouseField
+     * @param title The title of this HouseField
      * @param rent The rent of this HouseField
+     * @param type The type of this HouseField
      */
-    public HouseField(String name, int rent) {
-        this(name, "", "", rent, Color.BLUE, Color.BLACK);
-    }
+    public HouseField(String title, int rent, Color type) {
+        super(title);
 
+        this.setDescription("");
+        this.setSubText("");
 
-    /**
-     * Constructs a HouseField with all needed information; Name, description,
-     * sub description, rent, background color and foreground color
-     *
-     * @param name            The name of this HouseField
-     * @param description     The description of this HouseField (shown in the card in the middle of the board)
-     * @param subDescription  The sub description of this HouseField (shown in the actual field on the board)
-     * @param rent            The rent of this HouseField
-     * @param backgroundColor The color of this HouseField background
-     * @param foregroundColor The color of this HouseField foreground
-     */
-    public HouseField(String name, String description, String subDescription, int rent, Color backgroundColor, Color foregroundColor) {
-        super(name, description, subDescription, backgroundColor, foregroundColor);
+        this.setBackgroundColor(type);
+        this.setForegroundColor(Color.BLACK);
 
         this.rent = rent;
+        this.type = type;
 
         this.getGuiField().setRent("M" + this.rent);
     }
@@ -71,6 +68,16 @@ public class HouseField extends Field {
         return (GUI_Street) this.guiField;
     }
 
+
+    /**
+     * Retrieve the type of this HouseField
+     *
+     * @return The type
+     */
+    public Color getType()
+    {
+        return this.type;
+    }
 
     /**
      * Get this HouseFields rent

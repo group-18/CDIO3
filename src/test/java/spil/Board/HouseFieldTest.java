@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import spil.Player;
+import java.awt.Color;
 
 
 public class HouseFieldTest {
@@ -14,7 +15,7 @@ public class HouseFieldTest {
     @Before
     public void setUp() throws Exception
     {
-        this.field = new HouseField("Test name", 10);
+        this.field = new HouseField("Test name", 10, Color.WHITE);
     }
 
 
