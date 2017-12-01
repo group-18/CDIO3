@@ -87,6 +87,20 @@ public class Board {
     }
 
 
+    public HouseField[] getFieldsOwnedByPlayer(Player player)
+    {
+        ArrayList<HouseField> fields = new ArrayList<>();
+
+        for (HouseField field: this.getHouseFields()) {
+            if (field.isOwnedByPlayer(player)) {
+                fields.add(field);
+            }
+        }
+
+        return fields.toArray(new HouseField[] {});
+    }
+
+
     /**
      * Get all fields GUI fields for use in the GUI
      *
