@@ -41,13 +41,13 @@ public class Board {
     /**
      * Get a specific field by name on this Board
      *
-     * @param name The name of a field
+     * @param title The title of a field
      * @return The field
      */
-    public Field getFieldByName(String name)
+    public Field getFieldByTitle(String title)
     {
         for (Field field: this.fields) {
-            if (field.getName().equals(name)) {
+            if (field.getTitle().equals(title)) {
                 return field;
             }
         }
@@ -57,7 +57,7 @@ public class Board {
 
 
     /**
-     * Get alle fields GUI fields for use in the GUI
+     * Get all fields GUI fields for use in the GUI
      *
      * @return This Boards GUI fields
      */
@@ -153,28 +153,28 @@ public class Board {
     private Field[] createFields()
     {
         return new Field[] {
-            new StartField() .setName("Start") .setSubDescription("") .setBackgroundColor(Color.GREEN),
+            new StartField() .setTitle("Start") .setSubDescription("") .setBackgroundColor(Color.GREEN),
             new HouseField(Translate.t("board.field.burgerbaren.description"), "1").setBackgroundColor(Color.gray).setSubDescription("M1"),
             new HouseField(Translate.t("board.field.pizzeriaet.description"), "1").setBackgroundColor(Color.gray).setSubDescription("M1"),
-            new ChanceField() .setName("Chance"),
+            new ChanceField() .setTitle("Chance"),
             new HouseField(Translate.t("board.field.slikbutikken.description"), "1").setBackgroundColor(Color.cyan).setSubDescription("M1"),
             new HouseField(Translate.t("board.field.iskiosken.description"), "1").setBackgroundColor(Color.cyan).setSubDescription("M1"),
             new PrisonField(true),
             new HouseField(Translate.t("board.field.museet.description"), "2").setBackgroundColor(Color.pink).setSubDescription("M2"),
             new HouseField(Translate.t("board.field.biblioteket.description"), "2").setBackgroundColor(Color.pink).setSubDescription("M2"),
-            new ChanceField() .setName("Chance"),
+            new ChanceField() .setTitle("Chance"),
             new HouseField(Translate.t("board.field.skaterparken.description"), "2").setBackgroundColor(Color.orange).setSubDescription("M2"),
             new HouseField(Translate.t("board.field.swimmingpoolen.description"), "2").setBackgroundColor(Color.orange).setSubDescription("M2"),
-            new ParkingField() .setName("Parkering"),
+            new ParkingField() .setTitle("Parkering"),
             new HouseField(Translate.t("board.field.spillehallen.description"), "3").setBackgroundColor(Color.red).setSubDescription("M2"),
             new HouseField(Translate.t("board.field.biografen.description"), "3").setBackgroundColor(Color.red).setSubDescription("M2"),
-            new ChanceField() .setName("Chance"),
+            new ChanceField() .setTitle("Chance"),
             new HouseField(Translate.t("board.field.legetøjsbutikken.description"), "3").setBackgroundColor(Color.yellow).setSubDescription("M3"),
             new HouseField(Translate.t("board.field.dyrehandlen.description"), "3").setBackgroundColor(Color.yellow).setSubDescription("M3"),
             new PrisonField(false),
             new HouseField(Translate.t("board.field.bowlinghallen.description"), "4").setBackgroundColor(Color.green).setSubDescription("M4"),
             new HouseField(Translate.t("board.field.zoo.description"), "4").setBackgroundColor(Color.green).setSubDescription("M4"),
-            new ChanceField() .setName("Chance"),
+            new ChanceField() .setTitle("Chance"),
             new HouseField(Translate.t("board.field.vandlandet.description"), "5").setBackgroundColor(Color.blue).setSubDescription("M5"),
             new HouseField(Translate.t("board.field.strandpromenaden.description"), "5").setBackgroundColor(Color.blue).setSubDescription("M5"),
         };

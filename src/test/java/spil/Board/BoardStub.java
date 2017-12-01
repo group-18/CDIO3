@@ -22,10 +22,10 @@ public class BoardStub extends Board {
 
 
     @Override
-    public Field getFieldByName(String name)
+    public Field getFieldByTitle(String title)
     {
         for (Field field: this.fields) {
-            if (field.getName().equals(name)) {
+            if (field.getTitle().equals(title)) {
                 return field;
             }
         }

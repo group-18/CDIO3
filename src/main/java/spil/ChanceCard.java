@@ -77,7 +77,7 @@ public class ChanceCard {
 
                     String[] fieldNames = new String[fieldsToUse.size()];
                     for (int i = 0; i < fieldsToUse.size(); i++) {
-                        fieldNames[i] = fieldsToUse.get(i).getName();
+                        fieldNames[i] = fieldsToUse.get(i).getTitle();
                     }
 
                     String fieldName = game.getGui().getUserSelection(Translate.t("chance.description.type.action"), fieldNames);

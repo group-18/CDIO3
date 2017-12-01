@@ -10,9 +10,9 @@ import java.awt.Color;
 public abstract class Field {
 
     /**
-     * The name of this Field
+     * The title of this Field
      */
-    private String name;
+    private String title;
 
     /**
      * The description for this Field
@@ -41,14 +41,14 @@ public abstract class Field {
 
 
     /**
-     * Constructs a Field with a name
+     * Constructs a Field with a title
      *
-     * @param name The name of this Field
+     * @param title The title of this Field
      */
-    public Field(String name)
+    public Field(String title)
     {
         this();
-        this.setName(name);
+        this.setTitle(title);
     }
 
 
@@ -56,15 +56,15 @@ public abstract class Field {
      * Constructs a Field with all needed information; Name, description,
      * sub description, background color and foreground color
      *
-     * @param name The name of this Field
+     * @param title The title of this Field
      * @param description The description of this Field (shown in the card in the middle of the board)
      * @param subDescription The sub description of this Field (shown in the actual field on the board)
      * @param backgroundColor The color of this Field background
      * @param foregroundColor The color of this Field foreground
      */
-    public Field(String name, String description, String subDescription, Color backgroundColor, Color foregroundColor)
+    public Field(String title, String description, String subDescription, Color backgroundColor, Color foregroundColor)
     {
-        this(name);
+        this(title);
 
         this.setDescription(description).setSubDescription(subDescription);
         this.setBackgroundColor(backgroundColor).setForegroundColor(foregroundColor);
@@ -72,28 +72,28 @@ public abstract class Field {
 
 
     /**
-     * Get the name of this Field
+     * Get the title of this Field
      *
-     * @return The name of this Field
+     * @return The title of this Field
      */
-    public String getName()
+    public String getTitle()
     {
-        return this.name;
+        return this.title;
     }
 
 
     /**
-     * Set the name of this Field. Also sets the name on
+     * Set the title of this Field. Also sets the title on
      * the corresponding GUI field. Returns this Field
      * for easy chaining.
      *
-     * @param name The new name of this Field
+     * @param title The new title of this Field
      * @return This Field
      */
-    public Field setName(String name)
+    public Field setTitle(String title)
     {
-        this.name = name;
-        this.guiField.setTitle(this.name);
+        this.title = title;
+        this.guiField.setTitle(this.title);
 
         return this;
     }

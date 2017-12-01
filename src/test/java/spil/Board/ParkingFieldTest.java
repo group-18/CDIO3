@@ -27,8 +27,8 @@ public class ParkingFieldTest {
     @Test
     public void setName() throws Exception
     {
-        this.field.setName("Changed name");
-        Assert.assertTrue(this.field.getName().equals("Changed name"));
+        this.field.setTitle("Changed name");
+        Assert.assertTrue(this.field.getTitle().equals("Changed name"));
     }
 
 

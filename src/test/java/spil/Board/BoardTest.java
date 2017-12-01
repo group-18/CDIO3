@@ -25,9 +25,9 @@ public class BoardTest {
 
 
     @Test
-    public void getFieldByName() throws Exception
+    public void getFieldByTitle() throws Exception
     {
-        Field field = this.board.getFieldByName("Test house");
+        Field field = this.board.getFieldByTitle("Test house");
 
         Assert.assertTrue(field != null && field instanceof HouseField);
     }
