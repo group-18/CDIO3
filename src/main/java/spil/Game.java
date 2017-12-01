@@ -17,8 +17,6 @@ public class Game {
     private ChanceDeck chanceDeck;
     private PlayerCollection players;
 
-    private boolean winnerFound = false;
-
 
     private Game()
     {
@@ -192,7 +190,10 @@ public class Game {
             }
 
             this.players.incrementPlayerIndex();
-        } while (! this.winnerFound);
+        } while (! this.players.isAnyBankrupt());
+
+        Player bankruptPlayer = this.players.getBankruptPlayer();
+        this.gui.showMessage(bankruptPlayer.getName() + Translate.t("end.game.bankrupt"));
     }
 
 
@@ -209,12 +210,6 @@ public class Game {
 
         Field field = this.board.getPlayerField(currentPlayer);
         field.runAction(this);
-
-        if (this.players.isAnyBankrupt()) {
-            Player bankruptPlayer = this.players.getBankruptPlayer();
-            this.gui.showMessage(bankruptPlayer.getName() + Translate.t("end.game.bankrupt"));
-            this.winnerFound = true;
-        }
     }
 
 
