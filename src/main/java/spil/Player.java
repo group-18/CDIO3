@@ -103,24 +103,6 @@ public class Player {
         return this.stash.getAmount();
     }
 
-
-
-    public int getPrisonCard () {return this.prisonCards; }
-
-    public int addPrisonCard (int numbersOfPrisonCards)
-    {
-        this.prisonCards += numbersOfPrisonCards;
-
-        return this.prisonCards;
-    }
-
-    public int removePrisonCard (int numbersOfPrisonCards)
-    {
-        this.prisonCards -= numbersOfPrisonCards;
-
-        return this.prisonCards;
-    }
-
     /**
      * Add to this Player balance
      * @param balance The balance to add
@@ -129,6 +111,34 @@ public class Player {
     {
         this.stash.addAmount(balance);
         this.guiPlayer.setBalance(this.stash.getAmount());
+    }
+
+    /**
+     * Retrieve amount of Prisoncards
+     * @return The balance of int prisonCards
+     */
+    public int getPrisonCard () {return this.prisonCards; }
+
+    /**
+     * Add to amount of Prisoncards
+     * @return The balance of int prisonCards
+     */
+    public int addPrisonCard (int numbersOfPrisonCards)
+    {
+        this.prisonCards += numbersOfPrisonCards;
+
+        return this.prisonCards;
+    }
+
+    /**
+     * Remove to amount of Prisoncards
+     * @return The balance of int prisonCards
+     */
+    public int removePrisonCard (int numbersOfPrisonCards)
+    {
+        this.prisonCards -= numbersOfPrisonCards;
+
+        return this.prisonCards;
     }
 
     /**

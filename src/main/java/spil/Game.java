@@ -54,7 +54,6 @@ public class Game {
     }
 
 
-
     public Field[] getFields()
     {
         return this.board.getFields();
@@ -177,11 +176,14 @@ public class Game {
     {
         Player[] winners = this.players.getWinner();
 
-        if (winners.length > 1) {
-            for (Player player : winners) {
+        if (winners.length > 1)
+        {
+            for (Player player : winners)
+            {
                 int fieldsValue = 0;
 
-                for (HouseField field : this.board.getFieldsOwnedByPlayer(player)) {
+                for (HouseField field : this.board.getFieldsOwnedByPlayer(player))
+                {
                     fieldsValue += field.getRent();
                 }
 
@@ -190,9 +192,11 @@ public class Game {
 
             winners = this.players.getWinner();
 
-            if (winners.length > 1) {
+            if (winners.length > 1)
+            {
                 String[] winnerNames = new String[winners.length];
-                for (int i = 0; i < winners.length; i++) {
+                for (int i = 0; i < winners.length; i++)
+                {
                     winnerNames[i] = winners[i].getName();
                 }
 

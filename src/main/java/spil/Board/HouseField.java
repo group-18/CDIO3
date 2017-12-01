@@ -123,6 +123,18 @@ public class HouseField extends Field {
         }
     }
 
+    public void payRentInt(Board board, Player player)
+    {
+        HouseField[] fields = board.getFieldsByTypes(this.type);
+
+        for (HouseField field : fields) {
+            if (field.isOwnedByPlayer(this.owner)) {
+                player.addBalance(-this.getRent());
+                this.owner.addBalance(this.getRent());
+            }
+        }
+    }
+
 
     /**
      * Method to determine if this HouseField is owned
