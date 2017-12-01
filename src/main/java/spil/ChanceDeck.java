@@ -76,22 +76,23 @@ public class ChanceDeck {
      * Default {@link ChanceCard}s in a ChanceDeck.
      */
     static private ChanceCard[] defaultChanceCards = new ChanceCard[] {
-        new ChanceCard(
+       //These type chancecards are not yet implemented.
+        /*new ChanceCard(
             Translate.t("chance.description.type.car"),
             ChanceCard.typeAction(Player.Type.CAR)
-        ),
-        new ChanceCard(
+        ),*/
+        /*new ChanceCard(
             Translate.t("chance.description.type.ship"),
             ChanceCard.typeAction(Player.Type.BOAT)
-        ),
-        new ChanceCard(
+        ),*/
+        /*new ChanceCard(
             Translate.t("chance.description.type.cat"),
             ChanceCard.typeAction(Player.Type.CAT)
-        ),
-        new ChanceCard(
+        ),*/
+        /*new ChanceCard(
             Translate.t("chance.description.type.dog"),
             ChanceCard.typeAction(Player.Type.DOG)
-        ),
+        ),*/
         new ChanceCard(
             Translate.t("chance.description.to_start"),
             (game) -> game.movePlayer(game.getPlayers().getCurrentPlayer(), Translate.t("board.field.start.title"))
@@ -118,19 +119,21 @@ public class ChanceDeck {
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_lightblue"),
-            ChanceCard.fieldTypeAction(Color.LIGHT_GRAY)
+            ChanceCard.fieldTypeAction(Color.CYAN)
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_pink_darkblue"),
             ChanceCard.fieldTypeAction(Color.PINK, Color.BLUE)
         ),
+
+
         new ChanceCard(
             Translate.t("chance.description.move_to_red"),
             ChanceCard.fieldTypeAction(Color.RED)
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_lightblue_red"),
-            ChanceCard.fieldTypeAction(Color.LIGHT_GRAY, Color.RED)
+            ChanceCard.fieldTypeAction(Color.CYAN, Color.RED)
         ),
         new ChanceCard(
             Translate.t("chance.description.move_to_brown_yellow"),
