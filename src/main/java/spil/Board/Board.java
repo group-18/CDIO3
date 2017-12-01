@@ -5,6 +5,7 @@ import spil.Player;
 import spil.Translate;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -53,6 +54,36 @@ public class Board {
         }
 
         return null;
+    }
+
+
+    public HouseField[] getFieldsByTypes(Color ...types)
+    {
+        ArrayList<HouseField> fields = new ArrayList<>();
+
+        for (HouseField field : this.getHouseFields()) {
+            for (Color type : types) {
+                if (field.getType() == type) {
+                    fields.add(field);
+                }
+            }
+        }
+
+        return fields.toArray(new HouseField[] {});
+    }
+
+
+    public HouseField[] getHouseFields()
+    {
+        ArrayList<HouseField> fields = new ArrayList<>();
+
+        for (Field field: this.fields) {
+            if (field instanceof HouseField) {
+                fields.add((HouseField) field);
+            }
+        }
+
+        return fields.toArray(new HouseField[] {});
     }
 
 
