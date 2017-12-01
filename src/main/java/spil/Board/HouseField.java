@@ -111,10 +111,16 @@ public class HouseField extends Field {
      *
      * @param player The Player to pay the rent for
      */
-    public void payRent(Player player)
+    public void payRent(Board board, Player player)
     {
-        player.addBalance(-this.getRent());
-        this.owner.addBalance(this.getRent());
+        HouseField[] fields = board.getFieldsByTypes(this.type);
+
+        for (HouseField field : fields) {
+            if (field.isOwnedByPlayer(this.owner)) {
+                player.addBalance(-this.getRent());
+                this.owner.addBalance(this.getRent());
+            }
+        }
     }
 
 
@@ -163,7 +169,7 @@ public class HouseField extends Field {
         if (! this.isOwned()) {
             this.buyProperty(player);
         } else if (! this.isOwnedByPlayer(player)) {
-            this.payRent(player);
+            this.payRent(game.getBoard(), player);
             game.getGui().showMessage("Dette felt tilhører " + this.owner.getName() + ", som derfor tjener " + this.getRent() + "M fra " + player.getName());
         }
     }
