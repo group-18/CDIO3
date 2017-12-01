@@ -102,7 +102,10 @@ public class ChanceDeck {
                 String fieldAnswer = game.getGui().getUserSelection(Translate.t("chance.description.move_5_fields.question"), "1", "2", "3", "4", "5");
                 int numberOfFields = Integer.parseInt(fieldAnswer);
 
-                game.movePlayer(game.getPlayers().getCurrentPlayer(), numberOfFields);
+                Player player = game.getPlayers().getCurrentPlayer();
+
+                game.movePlayer(player, numberOfFields);
+                game.getBoard().getPlayerField(player).runAction(game);
             }
         ),
         new ChanceCard(
@@ -143,7 +146,10 @@ public class ChanceDeck {
                 );
 
                 if (answer.equals(Translate.t("chance.description.field_or_card.move"))) {
-                    game.movePlayer(game.getPlayers().getCurrentPlayer(), 1);
+                    Player player = game.getPlayers().getCurrentPlayer();
+
+                    game.movePlayer(player, 1);
+                    game.getBoard().getPlayerField(player).runAction(game);
                 } else {
                     game.getChanceDeck().draw().play(game);
                 }
@@ -159,7 +165,12 @@ public class ChanceDeck {
         ),
         new ChanceCard(
             Translate.t("chance.description.strandpromenaden"),
-            (game) -> game.movePlayer(game.getPlayers().getCurrentPlayer(), Translate.t("board.field.strandpromenaden.description"))
+            (game) -> {
+                Player player = game.getPlayers().getCurrentPlayer();
+
+                game.movePlayer(player, Translate.t("board.field.strandpromenaden.description"));
+                game.getBoard().getPlayerField(player).runAction(game);
+            }
         ),
         new ChanceCard(
             Translate.t("chance.description.birthday"),

@@ -161,6 +161,17 @@ public class HouseField extends Field {
     }
 
 
+    /**
+     * Get the owner of this HouseField
+     *
+     * @return The Player which owns this HouseField
+     */
+    public Player getOwner()
+    {
+        return this.owner;
+    }
+
+
     @Override
     public void runAction(Game game)
     {

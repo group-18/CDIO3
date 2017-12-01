@@ -84,6 +84,15 @@ public class ChanceCard {
                     String fieldName = game.getGui().getUserSelection(Translate.t("chance.description.type.action"), fieldNames);
 
                     game.movePlayer(player, fieldName);
+
+                    // Buy field
+                    HouseField field = (HouseField) game.getBoard().getPlayerField(player);
+
+                    if (field.isOwned()) {
+                        field.getOwner().addBalance(field.getRent());
+                    }
+
+                    field.buyProperty(player);
                 });
             }
 
