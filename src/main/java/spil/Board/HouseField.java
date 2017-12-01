@@ -35,7 +35,8 @@ public class HouseField extends Field {
      * @param rent The rent of this HouseField
      * @param type The type of this HouseField
      */
-    public HouseField(String title, int rent, Color type) {
+    public HouseField(String title, int rent, Color type)
+    {
         super(title);
 
         this.setDescription("");
@@ -55,7 +56,8 @@ public class HouseField extends Field {
      * {@inheritDoc}
      */
     @Override
-    protected GUI_Street createGUIFIeld() {
+    protected GUI_Street createGUIFIeld()
+    {
         return new GUI_Street();
     }
 
@@ -64,7 +66,8 @@ public class HouseField extends Field {
      * {@inheritDoc}
      */
     @Override
-    public GUI_Street getGuiField() {
+    public GUI_Street getGuiField()
+    {
         return (GUI_Street) this.guiField;
     }
 
@@ -84,7 +87,8 @@ public class HouseField extends Field {
      *
      * @return The rent for this HouseField
      */
-    public int getRent() {
+    public int getRent()
+    {
         return this.rent;
     }
 
@@ -94,7 +98,8 @@ public class HouseField extends Field {
      *
      * @return Is this HouseField owned?
      */
-    public boolean isOwned() {
+    public boolean isOwned()
+    {
         return this.owner != null;
     }
 
@@ -105,7 +110,8 @@ public class HouseField extends Field {
      * @param player The Player to check with
      * @return If this HouseField is owned by Player
      */
-    public boolean isOwnedByPlayer(Player player) {
+    public boolean isOwnedByPlayer(Player player)
+    {
         return this.owner == player;
     }
 
@@ -115,33 +121,31 @@ public class HouseField extends Field {
      *
      * @param player The Player to own this HouseField
      */
-    public void setOwner(Player player) {
+    public void setOwner(Player player)
+    {
         this.owner = player;
-    }
-
-    public Player getOwner() {
-        return this.owner;
     }
 
 
     @Override
-    public void runAction(Game game) {
+    public void runAction(Game game)
+    {
         Player player = game.getPlayers().getCurrentPlayer();
 
-        if (this.isOwned()){
-                if (!isOwnedByPlayer(player)){
-                    player.addBalance(-this.getRent());
-                    this.getOwner().addBalance(this.getRent());
-                    game.getGui().showMessage("Dette felt tilhører " + this.getOwner().getName() + ", som derfor tjener " + getRent() + "M fra " + player.getName());
-                }
-            }
-            else {
+        if (this.isOwned()) {
+            if (!isOwnedByPlayer(player)) {
                 player.addBalance(-this.getRent());
-                this.setOwner(player);
-                this.getGuiField().setOwnerName(player.getName());
-
-                this.getGuiField().setBorder(player.getGuiPlayer().getPrimaryColor());
+                this.owner.addBalance(this.getRent());
+                game.getGui().showMessage("Dette felt tilhører " + this.owner.getName() + ", som derfor tjener " + getRent() + "M fra " + player.getName());
             }
+        } else {
+            player.addBalance(-this.getRent());
+            this.setOwner(player);
+            this.getGuiField().setOwnerName(player.getName());
+
+            this.getGuiField().setBorder(player.getGuiPlayer().getPrimaryColor());
         }
     }
+
+}
 
